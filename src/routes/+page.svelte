@@ -17,13 +17,6 @@
 </section>
 
 <style lang="scss">
-	h1 {
-		font-size: 48px;
-	}
-
-	a {
-		text-decoration: none;
-	}
 	section {
 		height: 100vh;
 		width: 100vw;
