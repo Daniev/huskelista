@@ -7,11 +7,11 @@
 
 	<div>
 		<a href="/home">
-			<button on:click={() => ($user = 'Daniel')}>Daniel</button>
+			<button class="dani" on:click={() => ($user = 'Daniel')}>Daniel</button>
 		</a>
 
 		<a href="/home">
-			<button on:click={() => ($user = 'Mia')}>Mia</button>
+			<button class="mia" on:click={() => ($user = 'Mia')}>Mia</button>
 		</a>
 	</div>
 </section>
@@ -42,9 +42,24 @@
 
 	button {
 		margin: 1rem;
-		height: 15rem;
-		width: 30rem;
+		height: 12rem;
+		width: 23rem;
+		font-size: $font-xl;
+		font-weight: bold;
+	}
 
-		font-size: 32px;
+	.dani {
+		background-color: $lightblue;
+		margin-right: 5rem;
+		&:hover {
+			background-color: $lightblue1;
+		}
+	}
+
+	.mia {
+		background-color: $pink;
+		&:hover {
+			background-color: $pink1;
+		}
 	}
 </style>

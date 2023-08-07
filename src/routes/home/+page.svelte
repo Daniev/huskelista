@@ -2,7 +2,7 @@
 	import { user } from '$lib/stores/user';
 </script>
 
-<div class="main">
+<div class=" center">
 	<h1 class="centerDown">Velkommen {$user}</h1>
 
 	<section>
