@@ -1,5 +1,4 @@
 <header>
-	<div>Hus</div>
 	<a href="/">
 		<button class="round">Logg ut</button>
 	</a>
@@ -9,11 +8,10 @@
 
 <style lang="scss">
 	header {
-		background-color: grey;
 		width: 100vw;
 		height: 10vh;
 		display: flex;
-		justify-content: space-between;
+		justify-content: right;
 		align-items: center;
 	}
 
@@ -22,5 +20,10 @@
 		width: 7rem;
 		border-radius: 84px;
 		font-size: 16px;
+		background-color: $subtle-button-color;
+
+		&:hover {
+			background-color: $subtle-button-hover-color;
+		}
 	}
 </style>
