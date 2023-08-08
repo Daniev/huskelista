@@ -3,8 +3,23 @@
 	import TaskBox from '$lib/components/taskBox.svelte';
 	import { user } from '$lib/stores/user';
 
-	const list1: string[] = ['vask bad', 'kjøkken'];
-	const completeList: string[] = ['Re opp senger', 'Støvsuger og tørke støv'];
+	import { list } from '$lib/stores/lists';
+	import type { Task } from '$lib/types/tasks';
+
+	const todo: Task[] = [];
+	const done: Task[] = [];
+
+	function sortTaskList(list: Task[]) {
+		list.forEach((task) => {
+			if (task.completed) {
+				done.push(task);
+			} else {
+				todo.push(task);
+			}
+		});
+	}
+
+	$: sortTaskList($list);
 </script>
 
 <div class=" center">
@@ -13,8 +28,8 @@
 	<section>
 		<TaskBox title="Gjøremål">
 			<div slot="taskList">
-				{#each list1 as item}
-					<ListEntry>{item}</ListEntry>
+				{#each todo as task}
+					<ListEntry {task} />
 				{/each}
 			</div>
 			<div slot="bottom">
@@ -24,8 +39,8 @@
 
 		<TaskBox title="Fullført">
 			<div slot="taskList">
-				{#each completeList as item}
-					<ListEntry color="lightgrey">{item}</ListEntry>
+				{#each done as task}
+					<ListEntry color="lightgrey" {task} />
 				{/each}
 			</div>
 		</TaskBox>

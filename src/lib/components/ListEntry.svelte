@@ -1,9 +1,17 @@
 <script lang="ts">
+	import type { Task } from '$lib/types/tasks';
+
 	export let color: 'grey' | 'lightgrey' = 'grey';
+	export let task: Task;
+
+	function handleClick() {
+		task.completed = !task.completed;
+		task = task;
+	}
 </script>
 
-<button class={color}>
-	<p><slot /></p>
+<button class={color} on:click={handleClick}>
+	<p>{task.title}</p>
 </button>
 
 <style lang="scss">

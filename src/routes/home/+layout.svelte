@@ -1,5 +1,4 @@
 <header>
-	<div>Hus</div>
 	<a href="/">
 		<button class="round">Logg ut</button>
 	</a>
@@ -12,7 +11,7 @@
 		width: 100vw;
 		height: 10vh;
 		display: flex;
-		justify-content: space-between;
+		justify-content: right;
 		align-items: center;
 	}
 
