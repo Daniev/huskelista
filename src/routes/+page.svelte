@@ -42,10 +42,10 @@
 	}
 
 	.dani {
-		background-color: $lightblue;
+		background-color: $grey1;
 		margin-right: 5rem;
 		&:hover {
-			background-color: $lightblue1;
+			background-color: $grey2;
 		}
 	}
 

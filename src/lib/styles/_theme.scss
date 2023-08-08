@@ -1,6 +1,11 @@
 $bg-color: $white;
 $text-color: $black;
 $header-color: $blue;
+$border-color: $lightgrey;
+$button-color: $yellowgreen;
+$button-hover-color: $yellowgreen2;
+$subtle-button-color: $lightgrey1;
+$subtle-button-hover-color: $lightgrey;
 
 // fonts 
 $font-sml: 16px;
@@ -11,3 +16,8 @@ $font-xl: 48px;
 // borders
 $border-sm: 15px;
 $border-lg: 84px;
+
+// padding:
+$padding-sm: 15px;
+$padding-md: 30px;
+$padding-lg: 60px;

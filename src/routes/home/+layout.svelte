@@ -9,7 +9,6 @@
 
 <style lang="scss">
 	header {
-		background-color: grey;
 		width: 100vw;
 		height: 10vh;
 		display: flex;
@@ -22,5 +21,10 @@
 		width: 7rem;
 		border-radius: 84px;
 		font-size: 16px;
+		background-color: $subtle-button-color;
+
+		&:hover {
+			background-color: $subtle-button-hover-color;
+		}
 	}
 </style>
