@@ -4,22 +4,7 @@
 	import { user } from '$lib/stores/user';
 
 	import { list } from '$lib/stores/lists';
-	import type { Task } from '$lib/types/tasks';
-
-	const todo: Task[] = [];
-	const done: Task[] = [];
-
-	function sortTaskList(list: Task[]) {
-		list.forEach((task) => {
-			if (task.completed) {
-				done.push(task);
-			} else {
-				todo.push(task);
-			}
-		});
-	}
-
-	$: sortTaskList($list);
+	import { fly } from 'svelte/transition';
 </script>
 
 <div class=" center">
@@ -28,8 +13,12 @@
 	<section>
 		<TaskBox title="Gjøremål">
 			<div slot="taskList">
-				{#each todo as task}
-					<ListEntry {task} />
+				{#each $list as task}
+					{#if task.completed === false}
+						<div transition:fly={{ x: 500, duration: 200 }}>
+							<ListEntry bind:task />
+						</div>
+					{/if}
 				{/each}
 			</div>
 			<div slot="bottom">
@@ -39,8 +28,12 @@
 
 		<TaskBox title="Fullført">
 			<div slot="taskList">
-				{#each done as task}
-					<ListEntry color="lightgrey" {task} />
+				{#each $list as task}
+					{#if task.completed}
+						<div transition:fly={{ x: -500, duration: 200 }}>
+							<ListEntry color="lightgrey" bind:task />
+						</div>
+					{/if}
 				{/each}
 			</div>
 		</TaskBox>
