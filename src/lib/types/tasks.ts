@@ -5,3 +5,8 @@ export interface Task {
     description: string;
     completed: boolean;
 }
+
+/** Metadata used to function the database... */
+export interface metaData {
+    storedWeek: number;
+}
