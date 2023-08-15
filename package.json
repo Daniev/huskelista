@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"moment": "^2.29.4",
 		"sass": "^1.64.2",
 		"svelte-preprocess": "^5.0.4"
 	}
