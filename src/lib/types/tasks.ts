@@ -1,12 +1,12 @@
-
 export interface Task {
-    id: number;
-    title: string;
-    description: string;
-    completed: boolean;
+	id: number;
+	title: string;
+	description: string;
+	completed: boolean;
 }
 
-/** Metadata used to function the database... */
+/** Metadata used by the database... */
 export interface metaData {
-    storedWeek: number;
+	storedWeek: number;
+	dataStored: boolean;
 }
