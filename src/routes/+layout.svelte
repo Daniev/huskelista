@@ -18,8 +18,8 @@
 		width: 100vw;
 		margin: 0;
 		padding: 0;
-		background-color: $bg-color;
-		color: $text-color;
+		background-color: var(--bg-color);
+		color: var(--text-color);
 	}
 
 	:global(.centerDown) {
