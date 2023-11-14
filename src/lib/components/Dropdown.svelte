@@ -1,9 +1,11 @@
 <script lang="ts">
+	import type { DropdownColor } from '$lib/types/styleOptions';
 	import { onMount } from 'svelte';
 
 	let dropdownElement: HTMLElement;
 
 	export let isOpen = false;
+	export let color: DropdownColor = 'blue';
 
 	onMount(() => {
 		document.body.addEventListener('click', handleClickOutside);
@@ -33,7 +35,7 @@
 		</div>
 	</section>
 	{#if isOpen}
-		<section class="dropdown-section">
+		<section class="dropdown-section {color}">
 			<slot name="content">
 				<span>Dropdown content</span>
 			</slot>
@@ -50,9 +52,18 @@
 		top: 3;
 		left: 2;
 		transform: translate(-90%, -130%);
-		background-color: var(--dropdown-bg);
 		z-index: 2;
 		border-radius: $border-sm;
 		padding: $padding-sm;
+
+		&.blue {
+			background-color: var(--dropdown-bg);
+		}
+		&.lightgrey {
+			background-color: #a0acad;
+		}
+		&.green {
+			background-color: #49a078;
+		}
 	}
 </style>

@@ -5,6 +5,7 @@
 
 	import { list } from '$lib/stores/lists';
 	import { fly } from 'svelte/transition';
+	import Dropdown from '$lib/components/Dropdown.svelte';
 </script>
 
 <div class=" center">
@@ -22,7 +23,13 @@
 				{/each}
 			</div>
 			<div slot="bottom">
-				<button class="new">Ny</button>
+				<Dropdown>
+					<button class="new" slot="button">Ny</button>
+					<div class="dropdown-content" slot="content">
+						<h2>Lag nytt gjøremål</h2>
+						<input type="text" placeholder="Gjøremål" />
+					</div>
+				</Dropdown>
 			</div>
 		</TaskBox>
 
@@ -53,7 +60,7 @@
 		border-radius: $border-lg;
 		height: 2rem;
 		width: 2rem;
-		background-color: $button-color;
+		background-color: var(--button-color);
 		color: $white;
 		&:hover {
 			background-color: $button-hover-color;
