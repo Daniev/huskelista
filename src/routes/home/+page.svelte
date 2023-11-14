@@ -63,7 +63,7 @@
 		background-color: var(--button-color);
 		color: $white;
 		&:hover {
-			background-color: $button-hover-color;
+			background-color: var(--button-hover-color);
 		}
 	}
 </style>
