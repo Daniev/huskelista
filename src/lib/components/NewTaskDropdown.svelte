@@ -22,7 +22,6 @@
 		console.log('Task created', newTask);
 
 		isDropdownOpen = !isDropdownOpen;
-		taskTitle = taskDescription = '';
 	};
 </script>
 
@@ -78,7 +77,7 @@
 
 		.create {
 			padding: $padding-sm;
-			margin: 1;
+			margin: 0 1rem 0 0;
 			font-size: 1.1rem;
 			background-color: var(--button-color);
 			color: var(--white-text-color);
