@@ -1,6 +1,7 @@
 # TODOS
 
 ## FRONTEND
+- A dropdown for creating custom tasks
 - Remove completed task board, and replace with a details for complete tasks with a restore option
 - Center todos, add suggestions/common todos on the left
 - Add delete option (not just complete option)

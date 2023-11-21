@@ -1,14 +1,15 @@
 <script lang="ts">
-	import type { DropdownColor } from '$lib/types/styleOptions';
 	import { onMount } from 'svelte';
 
 	let dropdownElement: HTMLElement;
 
+	/** export value to let the parent know if the dropdown is open */
 	export let isOpen = false;
-	export let color: DropdownColor = 'blue';
+	/** Place the dropdown below instaed of above*/
+	export let placeBelow = false;
 
 	onMount(() => {
-		document.body.addEventListener('click', handleClickOutside);
+		dropdownElement.addEventListener('click', handleClickOutside);
 	});
 
 	function handleClickOutside(event: Event) {
@@ -35,7 +36,7 @@
 		</div>
 	</section>
 	{#if isOpen}
-		<section class="dropdown-section {color}">
+		<section class="dropdown-section" class:placeBelow>
 			<slot name="content">
 				<span>Dropdown content</span>
 			</slot>
@@ -44,9 +45,6 @@
 </div>
 
 <style lang="scss">
-	.button-section {
-		position: relative;
-	}
 	.dropdown-section {
 		position: absolute;
 		top: 3;
@@ -54,16 +52,11 @@
 		transform: translate(-90%, -130%);
 		z-index: 2;
 		border-radius: $border-sm;
-		padding: $padding-sm;
-
-		&.blue {
-			background-color: var(--dropdown-bg);
-		}
-		&.lightgrey {
-			background-color: #a0acad;
-		}
-		&.green {
-			background-color: #49a078;
-		}
+		background-color: var(--dropdown-bg);
+	}
+	.placeBelow {
+		top: -1;
+		right: 5;
+		transform: translate(15%, -30%);
 	}
 </style>
