@@ -9,10 +9,13 @@
 	export let placeBelow = false;
 
 	onMount(() => {
-		dropdownElement.addEventListener('click', handleClickOutside);
+		document.body.addEventListener('click', handleClickOutside);
 	});
 
 	function handleClickOutside(event: Event) {
+		if (!dropdownElement) {
+			return;
+		}
 		if (
 			event.target instanceof Element &&
 			!dropdownElement.contains(event.target) &&
