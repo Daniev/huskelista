@@ -1,1 +1,1 @@
-export type User = "Daniel" | "Mia" | "unknown";
+export type User = 'Daniel' | 'Mia' | 'unknown';

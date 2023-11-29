@@ -20,10 +20,10 @@
 		width: 7rem;
 		border-radius: 84px;
 		font-size: 16px;
-		background-color: $subtle-button-color;
+		background-color: var(--subtle-button-color);
 
 		&:hover {
-			background-color: $subtle-button-hover-color;
+			background-color: var(--subtle-button-hover-color);
 		}
 	}
 </style>
