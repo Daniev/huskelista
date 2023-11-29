@@ -17,8 +17,9 @@
 			assignee: selectedUser,
 			completed: false
 		};
-		$list.push(newTask);
-		console.log('Task created', newTask);
+		const taskList = $list;
+		taskList.push(newTask);
+		list.set(taskList);
 
 		isDropdownOpen = !isDropdownOpen;
 	};
