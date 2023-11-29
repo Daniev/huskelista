@@ -25,11 +25,13 @@
 	.clicker {
 		padding: 0.5rem;
 		width: 6rem;
+		background-color: var(--dark-blue);
+		color: var(--white);
 	}
 
 	.content {
 		padding: 0.5rem 0;
-		background-color: var(--subtle-button-color);
+		background-color: var(--white);
 		border-radius: 0 0 0.7rem;
 	}
 	.user {
@@ -42,7 +44,7 @@
 		height: 1.2rem;
 		margin: 0;
 		&:hover {
-			background-color: var(--subtle-button-hover-color);
+			background-color: var(--light-blue);
 		}
 	}
 </style>

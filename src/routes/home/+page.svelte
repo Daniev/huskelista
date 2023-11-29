@@ -30,7 +30,7 @@
 			{#each $list as task}
 				{#if task.completed}
 					<div transition:fly={{ x: -500, duration: 200 }}>
-						<ListEntry color="lightgrey" bind:task />
+						<ListEntry color="green" bind:task />
 					</div>
 				{/if}
 			{/each}

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Task } from '$lib/types/tasks';
 
-	export let color: 'grey' | 'lightgrey' = 'grey';
+	export let color: 'blue' | 'green' = 'blue';
 	export let task: Task;
 
 	function handleClick() {
@@ -17,7 +17,7 @@
 <style lang="scss">
 	button {
 		margin: 0;
-		margin-bottom: 3px;
+		margin-bottom: 5px;
 		outline: none;
 		text-align: left;
 		border-radius: 20px 20px 20px 0;
@@ -30,21 +30,21 @@
 		padding: $padding-sm;
 	}
 
-	.grey {
-		background-color: $grey1;
-		color: $white;
+	.blue {
+		background-color: var(--light-blue);
+		color: var(--white-text-color);
 
 		&:hover {
-			background-color: $grey;
+			background-color: var(--blue);
 		}
 	}
 
-	.lightgrey {
-		background-color: $grey2;
-		color: $white;
+	.green {
+		background-color: var(--matt-green);
+		color: var(--white-text-color);
 
 		&:hover {
-			background-color: $grey1;
+			background-color: var(--green);
 		}
 	}
 </style>

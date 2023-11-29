@@ -1,11 +1,8 @@
 <script lang="ts">
-	import type { TaskBoxColor } from '$lib/types/styleOptions';
-
 	export let title = 'Set a title';
-	export let color: TaskBoxColor = 'grey';
 </script>
 
-<div class="{color} box">
+<div class="box">
 	<div class="header">
 		<h2>{title}</h2>
 	</div>
@@ -28,6 +25,7 @@
 		max-height: 32rem;
 		padding: (1rem);
 
+		background-color: var(--white);
 		border-radius: $border-sm;
 	}
 
@@ -56,9 +54,5 @@
 		flex-direction: column;
 		align-items: center;
 		padding: $padding-sm;
-	}
-
-	.grey {
-		background-color: $lightgrey1;
 	}
 </style>
