@@ -9,10 +9,11 @@
 <style lang="scss">
 	header {
 		width: 100vw;
-		height: 10vh;
+		height: 8vh;
 		display: flex;
 		justify-content: right;
 		align-items: center;
+		background-color: var(--dark-grey);
 	}
 
 	.round {

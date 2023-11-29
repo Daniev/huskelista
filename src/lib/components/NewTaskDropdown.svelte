@@ -85,6 +85,7 @@
 			margin: 0 1rem 0 0;
 			font-size: 1.1rem;
 			background-color: var(--button-color);
+			margin: 0.6rem 0 0;
 			color: var(--white-text-color);
 			&:hover {
 				background-color: var(--button-hover-color);
@@ -104,10 +105,11 @@
 	}
 	.new {
 		border-radius: $border-lg;
-		height: 2rem;
-		width: 2rem;
+		height: 3rem;
+		width: 3rem;
 		background-color: var(--button-color);
 		color: var(--white-text-color);
+		margin: 0.6rem 0.6rem 0 0;
 
 		&:hover {
 			background-color: var(--button-hover-color);

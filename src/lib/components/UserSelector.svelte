@@ -26,6 +26,7 @@
 		padding: 0.5rem;
 		width: 6rem;
 		background-color: var(--dark-blue);
+		margin: 0.6rem 0.9rem;
 		color: var(--white);
 	}
 

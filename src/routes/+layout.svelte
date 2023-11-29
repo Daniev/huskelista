@@ -37,7 +37,6 @@
 	}
 
 	:global(button) {
-		margin: 1rem;
 		border-width: 0;
 		outline: none;
 		border-radius: $border-sm;
