@@ -3,9 +3,8 @@
 	import TaskBox from '$lib/components/taskBox.svelte';
 	import NewTaskDropdown from '$lib/components/NewTaskDropdown.svelte';
 
-	import { user } from '$lib/stores/user';
-	import { list } from '$lib/stores/lists';
 	import { fly } from 'svelte/transition';
+	import { list, user } from '$lib/stores';
 </script>
 
 <div class=" center">

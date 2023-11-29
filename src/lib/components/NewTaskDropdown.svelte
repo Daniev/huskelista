@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { list } from '$lib/stores/lists';
-	import { user } from '$lib/stores/user';
+	import { list, user } from '$lib/stores';
 	import type { Task } from '$lib/types/tasks';
 	import Dropdown from './Dropdown.svelte';
 	import UserSelector from './UserSelector.svelte';
@@ -29,7 +28,7 @@
 	<button class="new" slot="button">Ny</button>
 	<div class="dropdown-content" slot="content">
 		<h2>Lag nytt gjøremål</h2>
-		<!-- svelte-ignore a11y-autofocus -->
+		<!-- svelte-ignore a11y-autofocus because I want autofocus -->
 		<input
 			class="title-input"
 			type="text"

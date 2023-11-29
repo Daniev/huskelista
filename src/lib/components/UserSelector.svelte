@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { user, users } from '$lib/stores/user';
 	import type { User } from '$lib/types/user';
+	import { users } from '$lib/stores';
 	import Dropdown from './Dropdown.svelte';
 
 	export let selectedUser: User;
