@@ -1,6 +1,14 @@
+<script lang="ts">
+	import { user } from '$lib/stores';
+	const logout = () => {
+		$user = 'unknown';
+		document.cookie = 'user=unknown';
+	};
+</script>
+
 <header>
 	<a href="/">
-		<button class="round">Logg ut</button>
+		<button class="round" on:click={logout}>Logg ut</button>
 	</a>
 </header>
 

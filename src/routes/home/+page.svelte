@@ -5,8 +5,11 @@
 
 	import { fly } from 'svelte/transition';
 	import { list, user } from '$lib/stores';
+	import type { User } from '$lib/types/user';
 
 	let showComplete = true;
+	export let data: { user: User };
+	$: $user = data.user;
 
 	const toggleShow = () => {
 		showComplete = !showComplete;

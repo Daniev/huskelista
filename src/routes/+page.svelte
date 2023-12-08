@@ -1,18 +1,19 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { user } from '$lib/stores';
+	import type { User } from '$lib/types/user';
+
+	const setUser = (user: User) => {
+		document.cookie = 'user=' + user;
+		goto('/home');
+	};
 </script>
 
 <section>
 	<h1>Hvem er du?</h1>
-
 	<div>
-		<a href="/home">
-			<button class="dani" on:click={() => ($user = 'Daniel')}>Daniel</button>
-		</a>
-
-		<a href="/home">
-			<button class="mia" on:click={() => ($user = 'Mia')}>Mia</button>
-		</a>
+		<button class="dani" on:click={() => setUser('Daniel')}>Daniel</button>
+		<button class="mia" on:click={() => setUser('Mia')}>Mia</button>
 	</div>
 </section>
 
