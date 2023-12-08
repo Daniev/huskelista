@@ -6,7 +6,7 @@
 	import { fly } from 'svelte/transition';
 	import { list, user } from '$lib/stores';
 
-	let showComplete = false;
+	let showComplete = true;
 
 	const toggleShow = () => {
 		showComplete = !showComplete;
@@ -23,9 +23,9 @@
 					{#if task.completed === false}
 						<div transition:fly={{ x: 500, duration: 200 }}>
 							{#if $user === 'Daniel'}
-								<ListEntry bind:task />
+								<ListEntry classes="daniel" bind:task />
 							{:else if $user === 'Mia'}
-								<ListEntry color="yellow" bind:task />
+								<ListEntry classes="mia" bind:task />
 							{/if}
 						</div>
 					{/if}
@@ -49,7 +49,7 @@
 				{#each $list as task}
 					{#if task.completed}
 						<div transition:fly={{ x: -500, duration: 200 }}>
-							<ListEntry color="green" bind:task />
+							<ListEntry bind:task />
 						</div>
 					{/if}
 				{/each}

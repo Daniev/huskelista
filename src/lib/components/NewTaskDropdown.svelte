@@ -20,6 +20,10 @@
 		const taskList = $list;
 		taskList.push(newTask);
 		list.set(taskList);
+		// reset the form
+		taskTitle = '';
+		taskDescription = '';
+		selectedUser = $user;
 
 		isDropdownOpen = !isDropdownOpen;
 	};
@@ -68,11 +72,11 @@
 			padding: 0.2rem 0.75rem;
 			height: 2rem;
 			width: 13rem;
-			background-color: var(--blue);
+			background-color: var(--light-blue-trans);
 			&::placeholder {
-				color: var(--light-grey);
+				color: var(--dark-grey);
 			}
-			color: var(--white-text-color);
+			color: var(--text-color);
 			border-width: 1px;
 			border-style: none;
 			&:focus-visible {

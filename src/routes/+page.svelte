@@ -42,17 +42,17 @@
 	}
 
 	.dani {
-		background-color: var(--light-blue);
+		background-color: var(--daniel-profile-color);
 		margin-right: 5rem;
 		&:hover {
-			background-color: var(--blue);
+			background-color: var(--daniel-profile-color-darker);
 		}
 	}
 
 	.mia {
-		background-color: var(--yellow);
+		background-color: var(--mia-profile-color);
 		&:hover {
-			background-color: var(--yellow-darker);
+			background-color: var(--mia-profile-color-darker);
 		}
 	}
 </style>

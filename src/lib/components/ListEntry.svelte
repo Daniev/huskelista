@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Task } from '$lib/types/tasks';
 
-	export let color: 'blue' | 'green' | 'yellow' = 'blue';
+	export let classes: 'mia' | 'green' | 'daniel' = 'green';
 	export let task: Task;
 
 	function handleClick() {
@@ -10,7 +10,7 @@
 	}
 </script>
 
-<button class={color} on:click={handleClick}>
+<button class={classes} on:click={handleClick}>
 	<p>{task.title}</p>
 </button>
 
@@ -30,12 +30,12 @@
 		padding: $padding-sm;
 	}
 
-	.blue {
-		background-color: var(--light-blue-trans);
+	.daniel {
+		background-color: var(--daniel-task-color);
 		color: var(--text-color);
 
 		&:hover {
-			background-color: var(--light-blue);
+			background-color: var(--daniel-highlight-color);
 		}
 	}
 
@@ -48,11 +48,11 @@
 		}
 	}
 
-	.yellow {
-		background-color: var(--yellow-trans);
+	.mia {
+		background-color: var(--mia-task-color);
 		color: var(--text-color);
 		&:hover {
-			background-color: var(--yellow);
+			background-color: var(--mia-highlight-color);
 		}
 	}
 </style>
