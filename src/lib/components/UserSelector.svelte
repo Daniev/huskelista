@@ -4,6 +4,7 @@
 	import Dropdown from './Dropdown.svelte';
 
 	export let selectedUser: User;
+
 	let isOpen = false;
 
 	const changeUser = (user: User) => {
@@ -12,7 +13,7 @@
 </script>
 
 <Dropdown bind:isOpen placeBelow>
-	<button class="clicker" slot="button">{selectedUser}</button>
+	<button class="{selectedUser.toLowerCase()} clicker" slot="button">{selectedUser}</button>
 
 	<div slot="content" class="content">
 		{#each $users as user}
@@ -22,14 +23,23 @@
 </Dropdown>
 
 <style lang="scss">
+	.daniel {
+		background-color: var(--daniel-profile-color);
+		color: var(--white);
+	}
+	.mia {
+		background-color: var(--mia-profile-color);
+		color: var(--text-color);
+	}
 	.clicker {
 		padding: 0.5rem;
 		width: 6rem;
+		margin: 0.6rem 0.9rem;
 	}
 
 	.content {
 		padding: 0.5rem 0;
-		background-color: var(--subtle-button-color);
+		background-color: var(--white);
 		border-radius: 0 0 0.7rem;
 	}
 	.user {
@@ -42,7 +52,7 @@
 		height: 1.2rem;
 		margin: 0;
 		&:hover {
-			background-color: var(--subtle-button-hover-color);
+			background-color: var(--light-grey);
 		}
 	}
 </style>

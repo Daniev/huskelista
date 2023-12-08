@@ -20,6 +20,10 @@
 		const taskList = $list;
 		taskList.push(newTask);
 		list.set(taskList);
+		// reset the form
+		taskTitle = '';
+		taskDescription = '';
+		selectedUser = $user;
 
 		isDropdownOpen = !isDropdownOpen;
 	};
@@ -68,6 +72,11 @@
 			padding: 0.2rem 0.75rem;
 			height: 2rem;
 			width: 13rem;
+			background-color: var(--light-blue-trans);
+			&::placeholder {
+				color: var(--dark-grey);
+			}
+			color: var(--text-color);
 			border-width: 1px;
 			border-style: none;
 			&:focus-visible {
@@ -80,6 +89,7 @@
 			margin: 0 1rem 0 0;
 			font-size: 1.1rem;
 			background-color: var(--button-color);
+			margin: 0.6rem 0 0;
 			color: var(--white-text-color);
 			&:hover {
 				background-color: var(--button-hover-color);
@@ -99,10 +109,11 @@
 	}
 	.new {
 		border-radius: $border-lg;
-		height: 2rem;
-		width: 2rem;
+		height: 3rem;
+		width: 3rem;
 		background-color: var(--button-color);
 		color: var(--white-text-color);
+		margin: 0.6rem 0.6rem 0 0;
 
 		&:hover {
 			background-color: var(--button-hover-color);

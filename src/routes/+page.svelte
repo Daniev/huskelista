@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { user } from '$lib/stores/user';
+	import { user } from '$lib/stores';
 </script>
 
 <section>
@@ -42,17 +42,17 @@
 	}
 
 	.dani {
-		background-color: $grey1;
+		background-color: var(--daniel-profile-color);
 		margin-right: 5rem;
 		&:hover {
-			background-color: $grey2;
+			background-color: var(--daniel-profile-color-darker);
 		}
 	}
 
 	.mia {
-		background-color: $pink;
+		background-color: var(--mia-profile-color);
 		&:hover {
-			background-color: $pink1;
+			background-color: var(--mia-profile-color-darker);
 		}
 	}
 </style>

@@ -14,15 +14,42 @@ $padding-md: 20px;
 $padding-lg: 25px;
 
 :root {
-	--bg-color: #fdfffc;
+	--bg-color: hsl(0, 0%, 89%);
 	--white-text-color: #fdfffc;
 	--text-color: #040a10;
 	--header-color: #235789;
 	--border-color: #a0acad;
 
-	--button-color: #97cc04;
-	--button-hover-color: #9fd607;
-	--subtle-button-color: #dee2e3;
-	--subtle-button-hover-color: #a0acad;
-	--dropdown-bg: #b7c4cc;
+	--button-color: hsl(140, 13%, 59%);
+	--button-hover-color: hsl(148, 30%, 46%);
+	--subtle-button-color: hsl(0, 0%, 89%);
+	--subtle-button-hover-color: hsl(0, 0%, 68%);
+	--dropdown-bg: hsl(0, 0%, 89%);
+
+	--mia-task-color: hsla(49, 94%, 68%, 0.4);
+	--mia-highlight-color: hsla(49, 94%, 68%, 0.9);
+	--mia-profile-color: hsl(49, 94%, 68%);
+	--mia-profile-color-darker: hsl(49, 94%, 60%);
+	--daniel-task-color: hsla(203, 33%, 53%, 0.5);
+	--daniel-highlight-color: hsl(203, 33%, 53%);
+	--daniel-profile-color: hsl(203, 33%, 53%);
+	--daniel-profile-color-darker: hsl(203, 33%, 46%);
+
+	--white: hsl(0, 0%, 100%);
+	--white-darker: hsl(0, 0%, 89%);
+	--light-grey: hsl(240, 0%, 65%);
+	--light-brown: hsl(352, 12%, 73%);
+	--matt-green: hsl(140, 13%, 59%);
+	--green: hsl(148, 30%, 46%);
+	--light-green: hsl(76, 38%, 58%);
+	--light-green-darker: hsl(76, 38%, 48%);
+	--yellow: hsla(49, 94%, 68%, 0.9);
+	--yellow-trans: hsla(49, 94%, 68%, 0.4);
+	--yellow-darker: hsl(49, 94%, 60%);
+	--dark-grey: hsl(225, 18%, 39%);
+	--dark-blue: hsl(211, 26%, 43%);
+	--blue: hsl(203, 33%, 46%);
+	--light-blue: hsl(203, 33%, 53%);
+	--light-blue-trans: hsla(203, 33%, 53%, 0.5);
+	--lighter-blue: hsl(196, 50%, 53%);
 }

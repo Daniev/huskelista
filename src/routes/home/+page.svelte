@@ -5,6 +5,12 @@
 
 	import { fly } from 'svelte/transition';
 	import { list, user } from '$lib/stores';
+
+	let showComplete = true;
+
+	const toggleShow = () => {
+		showComplete = !showComplete;
+	};
 </script>
 
 <div class=" center">
@@ -16,7 +22,11 @@
 				{#each $list as task}
 					{#if task.completed === false}
 						<div transition:fly={{ x: 500, duration: 200 }}>
-							<ListEntry bind:task />
+							{#if $user === 'Daniel'}
+								<ListEntry classes="daniel" bind:task />
+							{:else if $user === 'Mia'}
+								<ListEntry classes="mia" bind:task />
+							{/if}
 						</div>
 					{/if}
 				{/each}
@@ -27,13 +37,23 @@
 		</TaskBox>
 
 		<div>
-			{#each $list as task}
-				{#if task.completed}
-					<div transition:fly={{ x: -500, duration: 200 }}>
-						<ListEntry color="lightgrey" bind:task />
-					</div>
+			<div class="header">
+				<h2>Fullførte</h2>
+				{#if !showComplete}
+					<button on:click={toggleShow}>Vis</button>
+				{:else}
+					<button on:click={toggleShow}>Skjul</button>
 				{/if}
-			{/each}
+			</div>
+			{#if showComplete}
+				{#each $list as task}
+					{#if task.completed}
+						<div transition:fly={{ x: -500, duration: 200 }}>
+							<ListEntry bind:task />
+						</div>
+					{/if}
+				{/each}
+			{/if}
 		</div>
 	</section>
 </div>
@@ -44,5 +64,16 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+
+		.header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 22rem;
+
+			button {
+				padding: 0.5rem 1rem;
+			}
+		}
 	}
 </style>
