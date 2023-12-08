@@ -42,10 +42,10 @@
 	}
 
 	.dani {
-		background-color: var(--light-green);
+		background-color: var(--light-blue);
 		margin-right: 5rem;
 		&:hover {
-			background-color: var(--light-green-darker);
+			background-color: var(--blue);
 		}
 	}
 

@@ -22,8 +22,8 @@ $padding-lg: 25px;
 
 	--button-color: hsl(140, 13%, 59%);
 	--button-hover-color: hsl(148, 30%, 46%);
-	--subtle-button-color: hsl(352, 12%, 73%);
-	--subtle-button-hover-color: hsl(352, 12%, 65%);
+	--subtle-button-color: hsl(0, 0%, 89%);
+	--subtle-button-hover-color: hsl(0, 0%, 68%);
 	--dropdown-bg: hsl(0, 0%, 89%);
 
 	--white: hsl(0, 0%, 100%);
@@ -34,11 +34,13 @@ $padding-lg: 25px;
 	--green: hsl(148, 30%, 46%);
 	--light-green: hsl(76, 38%, 58%);
 	--light-green-darker: hsl(76, 38%, 48%);
-	--yellow: hsl(49, 94%, 68%);
+	--yellow: hsla(49, 94%, 68%, 0.9);
+	--yellow-trans: hsla(49, 94%, 68%, 0.4);
 	--yellow-darker: hsl(49, 94%, 60%);
 	--dark-grey: hsl(225, 18%, 39%);
 	--dark-blue: hsl(211, 26%, 43%);
 	--blue: hsl(203, 33%, 46%);
 	--light-blue: hsl(203, 33%, 53%);
+	--light-blue-trans: hsla(203, 33%, 53%, 0.5);
 	--lighter-blue: hsl(196, 50%, 53%);
 }
