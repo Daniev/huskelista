@@ -54,7 +54,7 @@
 		left: 2;
 		transform: translate(-90%, -130%);
 		z-index: 2;
-		border-radius: $border-sm;
+		border-radius: var(--bo);
 		background-color: var(--dropdown-bg);
 	}
 	.placeBelow {

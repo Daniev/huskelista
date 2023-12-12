@@ -32,24 +32,23 @@
 		color: var(--text-color);
 	}
 	.clicker {
-		padding: 0.5rem;
-		width: 6rem;
-		margin: 0.6rem 0.9rem;
+		padding: var(--pa-small) var(--pa);
+		width: 5rem;
+		margin: var(--ma) var(--ma-big);
 	}
 
 	.content {
-		padding: 0.5rem 0;
+		padding: var(--pa-small) 0;
 		background-color: var(--white);
-		border-radius: 0 0 0.7rem;
+		border-radius: var(--bo-small);
 	}
 	.user {
 		display: block;
 		border-radius: 0;
 		text-align: left;
-		padding: 0.3rem 0.8rem;
+		padding: var(--pa-mini) var(--pa);
 		background-color: transparent;
-		width: 6rem;
-		height: 1.2rem;
+		width: 5rem;
 		margin: 0;
 		&:hover {
 			background-color: var(--light-grey);

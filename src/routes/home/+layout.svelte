@@ -16,8 +16,8 @@
 
 <style lang="scss">
 	header {
-		width: 100vw;
-		height: 8vh;
+		width: 100svw;
+		height: 6svh;
 		display: flex;
 		justify-content: right;
 		align-items: center;

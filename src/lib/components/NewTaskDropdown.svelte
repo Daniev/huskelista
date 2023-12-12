@@ -32,7 +32,7 @@
 <Dropdown bind:isOpen={isDropdownOpen}>
 	<button class="new" slot="button">Ny</button>
 	<div class="dropdown-content" slot="content">
-		<h2>Lag nytt gjøremål</h2>
+		<h3>Lag nytt gjøremål</h3>
 		<!-- svelte-ignore a11y-autofocus because I want autofocus -->
 		<input
 			class="title-input"
@@ -61,15 +61,17 @@
 	.dropdown-content {
 		display: block;
 		width: 15rem;
-		padding: $padding-sm;
-		h2 {
-			font-size: 20px;
+		padding: var(--pa);
+		h3 {
+			font-size: var(--fo-medium);
+			font-weight: 400;
+			margin: 0 0 var(--ma) 0;
 		}
 		input,
 		textarea {
-			border-radius: 1rem;
-			font-size: 1rem;
-			padding: 0.2rem 0.75rem;
+			border-radius: var(--bo);
+			font-size: var(--fo-small);
+			padding: var(--pa-mini) var(--pa-small);
 			height: 2rem;
 			width: 13rem;
 			background-color: var(--light-blue-trans);
@@ -77,7 +79,6 @@
 				color: var(--dark-grey);
 			}
 			color: var(--text-color);
-			border-width: 1px;
 			border-style: none;
 			&:focus-visible {
 				outline: none;
@@ -85,11 +86,11 @@
 		}
 
 		.create {
-			padding: $padding-sm;
+			padding: var(--pa);
 			margin: 0 1rem 0 0;
 			font-size: 1.1rem;
 			background-color: var(--button-color);
-			margin: 0.6rem 0 0;
+			margin: var(--ma) 0 0;
 			color: var(--white-text-color);
 			&:hover {
 				background-color: var(--button-hover-color);
@@ -97,23 +98,22 @@
 		}
 
 		.description-input {
-			margin-top: 1rem;
+			margin-top: var(--ma-medium);
 			height: 5rem;
 		}
 		.center {
 			display: flex;
-			padding: 0 0.6rem;
 			justify-content: flex-start;
 			align-items: center;
 		}
 	}
 	.new {
-		border-radius: $border-lg;
-		height: 3rem;
+		border-radius: var(--bo-big);
+		padding: var(--pa-small);
 		width: 3rem;
 		background-color: var(--button-color);
 		color: var(--white-text-color);
-		margin: 0.6rem 0.6rem 0 0;
+		margin: var(--ma) var(--ma) 0 0;
 
 		&:hover {
 			background-color: var(--button-hover-color);

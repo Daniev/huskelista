@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { user } from '$lib/stores';
 	import type { User } from '$lib/types/user';
 
 	const setUser = (user: User) => {
@@ -38,8 +37,10 @@
 		margin: 1rem;
 		height: 12rem;
 		width: 23rem;
-		font-size: $font-xl;
-		font-weight: bold;
+		font-size: var(--fo-xlarge);
+		font-family: var(--header-font);
+		line-height: var(--header-line-height);
+		letter-spacing: var(--header-letter-spacing);
 	}
 
 	.dani {

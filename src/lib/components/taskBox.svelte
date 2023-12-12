@@ -23,20 +23,23 @@
 	.box {
 		width: 22rem;
 		max-height: 32rem;
-		padding: (0.7rem);
+		padding: var(--pa-small) var(--pa);
 
 		background-color: var(--white);
-		border-radius: $border-sm;
+		border-radius: var(--bo);
 	}
 
 	.header {
 		display: flex;
 		justify-content: left;
 		align-items: center;
-		padding: $padding-sm;
+		padding: var(--pa) var(--pa) var(--pa);
 		height: 2rem;
 
 		border-bottom: solid var(--border-color) 1px;
+		h2 {
+			margin: 0;
+		}
 	}
 
 	.footer {
@@ -51,6 +54,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: $padding-sm;
+		padding: var(--pa);
+		margin-top: var(--ma);
 	}
 </style>

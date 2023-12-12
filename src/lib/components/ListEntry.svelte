@@ -17,17 +17,17 @@
 <style lang="scss">
 	button {
 		margin: 0;
-		margin-bottom: 5px;
+		margin-bottom: var(--ma);
 		outline: none;
 		text-align: left;
-		border-radius: 20px 20px 20px 0;
+		border-radius: var(--bo) var(--bo) var(--bo) 0;
 	}
 	p {
 		text-decoration: none;
 		margin: 0;
 		width: 18.5rem;
 		height: 1rem;
-		padding: $padding-sm;
+		padding: var(--pa-small);
 	}
 
 	.daniel {
