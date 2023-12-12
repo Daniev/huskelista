@@ -2,15 +2,20 @@
 
 <style lang="scss">
 	:global(h1) {
-		font-size: $font-xl;
+		font-size: var(--font-size-xlarge);
+		font-family: var(--header-font);
+		font-weight: normal;
 	}
 
 	:global(h2) {
-		font-size: $font-lg;
+		font-size: var(--font-size-large);
+		font-family: var(--header-font);
+		font-weight: normal;
 	}
 
 	:global(a) {
 		text-decoration: none;
+		font-weight: normal;
 	}
 
 	:global(body) {
@@ -20,6 +25,7 @@
 		padding: 0;
 		background-color: var(--bg-color);
 		color: var(--text-color);
+		font-family: var(--body-font);
 	}
 
 	:global(.centerDown) {
@@ -38,11 +44,8 @@
 
 	:global(button) {
 		border-width: 0;
+		cursor: pointer;
 		outline: none;
 		border-radius: $border-sm;
-
-		&:hover {
-			cursor: pointer;
-		}
 	}
 </style>
