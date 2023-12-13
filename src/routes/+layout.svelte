@@ -26,7 +26,14 @@
 
 	:global(a) {
 		text-decoration: none;
+		font-size: var(--fo-small);
 		font-weight: normal;
+	}
+
+	:global(p) {
+		font-size: var(--fo-small);
+		font-weight: normal;
+		margin: none;
 	}
 
 	:global(body) {

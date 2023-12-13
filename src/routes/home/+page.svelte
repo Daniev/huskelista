@@ -2,14 +2,18 @@
 	import ListEntry from '$lib/components/ListEntry.svelte';
 	import TaskBox from '$lib/components/taskBox.svelte';
 	import NewTaskDropdown from '$lib/components/NewTaskDropdown.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	import { fly } from 'svelte/transition';
 	import { list, user } from '$lib/stores';
 	import type { User } from '$lib/types/user';
 
-	let showComplete = true;
 	export let data: { user: User };
+
+	let showComplete = true;
+	let showText = 'Sjul';
 	$: $user = data.user;
+	$: showText = showComplete ? 'Vis' : 'Sjul';
 
 	const toggleShow = () => {
 		showComplete = !showComplete;
@@ -42,11 +46,7 @@
 		<div>
 			<div class="header">
 				<h2>Fullførte</h2>
-				{#if !showComplete}
-					<button on:click={toggleShow}>Vis</button>
-				{:else}
-					<button on:click={toggleShow}>Sjul</button>
-				{/if}
+				<Button on:click={toggleShow}>{showText}</Button>
 			</div>
 			{#if showComplete}
 				{#each $list as task}

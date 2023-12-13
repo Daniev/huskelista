@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { list, user } from '$lib/stores';
 	import type { Task } from '$lib/types/tasks';
+	import Button from './Button.svelte';
 	import Dropdown from './Dropdown.svelte';
 	import UserSelector from './UserSelector.svelte';
 
@@ -30,7 +31,7 @@
 </script>
 
 <Dropdown bind:isOpen={isDropdownOpen}>
-	<button class="new" slot="button">Ny</button>
+	<Button callToAction slot="button">Ny</Button>
 	<div class="dropdown-content" slot="content">
 		<h3>Lag nytt gjøremål</h3>
 		<!-- svelte-ignore a11y-autofocus because I want autofocus -->
@@ -52,8 +53,7 @@
 			<span>Ansvarlig:</span>
 			<UserSelector bind:selectedUser />
 		</div>
-
-		<button class="create" on:click={createTask}>Opprett gjøremål</button>
+		<Button callToAction on:click={createTask}>Opprett gjøremål</Button>
 	</div>
 </Dropdown>
 
@@ -85,18 +85,6 @@
 			}
 		}
 
-		.create {
-			padding: var(--pa);
-			margin: 0 1rem 0 0;
-			font-size: 1.1rem;
-			background-color: var(--button-color);
-			margin: var(--ma) 0 0;
-			color: var(--white-text-color);
-			&:hover {
-				background-color: var(--button-hover-color);
-			}
-		}
-
 		.description-input {
 			margin-top: var(--ma-medium);
 			height: 5rem;
@@ -105,19 +93,6 @@
 			display: flex;
 			justify-content: flex-start;
 			align-items: center;
-		}
-	}
-	.new {
-		border-radius: var(--bo-big);
-		padding: var(--pa-small);
-		width: 3rem;
-		background-color: var(--new-blue);
-		color: var(--text-color);
-		margin: var(--ma) var(--ma) 0 0;
-
-		&:hover {
-			background-color: var(--button-hover-color);
-			color: var(--white-text-color);
 		}
 	}
 </style>

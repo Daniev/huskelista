@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Button from '$lib/components/Button.svelte';
 	import { user } from '$lib/stores';
 	const logout = () => {
 		$user = 'unknown';
@@ -8,7 +9,7 @@
 
 <header>
 	<a href="/">
-		<button class="round" on:click={logout}>Logg ut</button>
+		<Button on:click={logout}>Logg ut</Button>
 	</a>
 </header>
 
@@ -24,17 +25,7 @@
 		background-color: var(--matt-green);
 	}
 
-	.round {
-		margin-right: 2rem;
-		height: 2rem;
-		width: 6rem;
-		border-radius: 84px;
-		font-size: 16px;
-		background-color: var(--subtle-button-color);
-
-		&:hover {
-			background-color: var(--green);
-			color: var(--white-text-color);
-		}
+	a {
+		margin: 0 var(--ma-big);
 	}
 </style>
