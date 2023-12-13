@@ -32,7 +32,7 @@
 
 	--white: hsl(0, 0%, 100%);
 	--white-darker: hsl(0, 0%, 89%);
-	--light-grey: hsl(240, 0%, 65%);
+	--light-grey: #d6d6d6;
 	--light-brown: hsl(352, 12%, 73%);
 	--matt-green: hsl(140, 13%, 59%);
 	--green: hsl(148, 30%, 46%);
@@ -47,6 +47,9 @@
 	--light-blue: hsl(203, 33%, 53%);
 	--light-blue-trans: hsla(203, 33%, 53%, 0.5);
 	--lighter-blue: hsl(196, 50%, 53%);
+	--new-blue: hsl(206, 67%, 76%);
+	--new-blue-light: hsl(206, 67%, 86%);
+	// --light-grey: #d6d6d6;
 
 	--body-font: "Poppins";
 	--header-font: "Work Sans";
@@ -73,4 +76,8 @@
 	--bo-big: 84px;
 
 	--border-small: 0.25px solid var(--border-color);
+
+	--gradient-blue: linear-gradient(45deg,
+			var(--new-blue),
+			var(--new-blue-light))
 }

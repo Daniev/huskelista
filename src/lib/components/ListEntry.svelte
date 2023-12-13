@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Task } from '$lib/types/tasks';
 
-	export let classes: 'mia' | 'green' | 'daniel' = 'green';
+	export let classes: 'mia' | 'completed' | 'daniel' = 'completed';
 	export let task: Task;
 
 	function handleClick() {
@@ -31,17 +31,20 @@
 	}
 
 	.daniel {
-		background-color: var(--daniel-task-color);
+		background-image: var(--gradient-blue);
 		color: var(--text-color);
 
 		&:hover {
-			background-color: var(--daniel-highlight-color);
+			background-image: none;
+			background-color: var(--green);
+			color: var(--white-text-color);
+			font-weight: 600;
 		}
 	}
 
-	.green {
-		background-color: var(--matt-green);
-		color: var(--white-text-color);
+	.completed {
+		background-color: var(--light-grey);
+		color: var(--text-color);
 
 		&:hover {
 			background-color: var(--green);
@@ -49,10 +52,12 @@
 	}
 
 	.mia {
-		background-color: var(--mia-task-color);
+		background-image: var(--gradient-blue);
 		color: var(--text-color);
 		&:hover {
+			background-image: none;
 			background-color: var(--mia-highlight-color);
+			font-weight: 600;
 		}
 	}
 </style>
