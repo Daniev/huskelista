@@ -45,6 +45,7 @@
 	.completed {
 		background-color: var(--light-grey);
 		color: var(--text-color);
+		border: var(--border-small);
 
 		&:hover {
 			background-color: var(--green);

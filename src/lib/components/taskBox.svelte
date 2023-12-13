@@ -23,17 +23,18 @@
 	.box {
 		width: 22rem;
 		max-height: 32rem;
-		padding: var(--pa-small) var(--pa);
+		// padding: var(--pa-small) var(--pa);
 
 		background-color: var(--white);
 		border-radius: var(--bo);
+		border: var(--border-small);
 	}
 
 	.header {
 		display: flex;
 		justify-content: left;
 		align-items: center;
-		padding: var(--pa) var(--pa) var(--pa);
+		padding: var(--pa-big) var(--pa-big) var(--pa-big);
 		height: 2rem;
 
 		border-bottom: solid var(--border-color) 1px;
@@ -44,13 +45,14 @@
 
 	.footer {
 		border-top: solid var(--border-color) 1px;
+		padding: 0 var(--pa) var(--pa);
 		display: flex;
 		justify-content: right;
 		align-items: center;
 	}
 
 	.list-container {
-		height: 21rem;
+		height: 20rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
