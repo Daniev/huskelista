@@ -45,7 +45,7 @@
 				{#if !showComplete}
 					<button on:click={toggleShow}>Vis</button>
 				{:else}
-					<button on:click={toggleShow}>Skjul</button>
+					<button on:click={toggleShow}>Sjul</button>
 				{/if}
 			</div>
 			{#if showComplete}
@@ -76,6 +76,12 @@
 
 			button {
 				padding: 0.5rem 1rem;
+			}
+		}
+		button {
+			&:hover {
+				background-color: var(--green);
+				color: var(--white-text-color);
 			}
 		}
 	}

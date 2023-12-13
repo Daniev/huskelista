@@ -111,12 +111,13 @@
 		border-radius: var(--bo-big);
 		padding: var(--pa-small);
 		width: 3rem;
-		background-color: var(--button-color);
-		color: var(--white-text-color);
+		background-color: var(--new-blue);
+		color: var(--text-color);
 		margin: var(--ma) var(--ma) 0 0;
 
 		&:hover {
 			background-color: var(--button-hover-color);
+			color: var(--white-text-color);
 		}
 	}
 </style>

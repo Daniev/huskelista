@@ -33,7 +33,8 @@
 		background-color: var(--subtle-button-color);
 
 		&:hover {
-			background-color: var(--subtle-button-hover-color);
+			background-color: var(--green);
+			color: var(--white-text-color);
 		}
 	}
 </style>

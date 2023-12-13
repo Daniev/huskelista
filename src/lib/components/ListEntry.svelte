@@ -48,7 +48,8 @@
 		border: var(--border-small);
 
 		&:hover {
-			background-color: var(--green);
+			background-color: var(--new-blue);
+			color: var(--white-text-color);
 		}
 	}
 
