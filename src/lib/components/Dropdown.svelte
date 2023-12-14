@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
 
 	let dropdownElement: HTMLElement;
 
@@ -7,6 +8,9 @@
 	export let isOpen = false;
 	/** Place the dropdown below instaed of above*/
 	export let placeBelow = false;
+
+	/** Disable popup animation*/
+	export let disableAnimation = false;
 
 	onMount(() => {
 		document.body.addEventListener('click', handleClickOutside);
@@ -28,6 +32,8 @@
 	function toggleDropdown() {
 		isOpen = !isOpen;
 	}
+
+	const transitionSettings = disableAnimation ? {} : { y: 100, duration: 200 };
 </script>
 
 <div bind:this={dropdownElement}>
@@ -39,7 +45,7 @@
 		</div>
 	</section>
 	{#if isOpen}
-		<section class="dropdown-section" class:placeBelow>
+		<section class="dropdown-section" class:placeBelow transition:fly={transitionSettings}>
 			<slot name="content">
 				<span>Dropdown content</span>
 			</slot>

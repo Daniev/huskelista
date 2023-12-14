@@ -12,7 +12,7 @@
 	};
 </script>
 
-<Dropdown bind:isOpen placeBelow>
+<Dropdown bind:isOpen placeBelow disableAnimation>
 	<button class="{selectedUser.toLowerCase()} clicker" slot="button">{selectedUser}</button>
 
 	<div slot="content" class="content">
