@@ -56,11 +56,10 @@
 <style lang="scss">
 	.dropdown-section {
 		position: absolute;
-		top: 3;
-		left: 2;
-		transform: translate(-90%, -130%);
+		transform: translate(-90%, -115%);
 		z-index: 2;
 		border-radius: var(--bo);
+		border: var(--border-small);
 		background-color: var(--dropdown-bg);
 	}
 	.placeBelow {

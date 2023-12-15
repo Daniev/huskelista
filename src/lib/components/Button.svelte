@@ -5,7 +5,8 @@
 	export let callToAction = false;
 	export let title = '';
 
-	const isUserMia = $user === 'Mia';
+	let isUserMia = false;
+	$: isUserMia = $user === 'Mia';
 </script>
 
 <button class="button" class:call-to-action={callToAction} class:mia={isUserMia} on:click {title}>
@@ -19,11 +20,15 @@
 		--_hover-text: var(--hover-text, var(--white-text-color));
 		background-color: var(--_button-color);
 		border-radius: var(--bo-big);
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		color: var(--text-color);
 		font-size: var(--fo-small);
 		padding: var(--pa-small) var(--pa);
-		margin: var(--ma);
-		&:hover {
+		margin: var(--ma) 0;
+		&:hover,
+		&:focus {
 			background-color: var(--_hover-color);
 			color: var(--_hover-text);
 			font-weight: 500;

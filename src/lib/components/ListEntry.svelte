@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Task } from '$lib/types/tasks';
-	import Icon from "$lib/components/Icon.svelte";
+	import Icon from '$lib/components/Icon.svelte';
 
 	export let classes: 'mia' | 'completed' | 'daniel' = 'completed';
 	export let task: Task;
@@ -13,13 +13,12 @@
 
 <button class={classes} on:click={handleClick}>
 	<p>{task.title}</p>
-	<Icon iconName="zondicons:checkmark-outline"/>
+	<Icon iconName="zondicons:checkmark-outline" />
 </button>
 
 <style lang="scss">
 	button {
-		margin: 0;
-		margin-bottom: var(--ma);
+		margin: var(--ma);
 		display: flex;
 		justify-content: center;
 		align-items: center;

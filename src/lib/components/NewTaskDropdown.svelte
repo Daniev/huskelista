@@ -3,18 +3,22 @@
 	import type { Task } from '$lib/types/tasks';
 	import Button from './Button.svelte';
 	import Dropdown from './Dropdown.svelte';
+	import Icon from './Icon.svelte';
 	import UserSelector from './UserSelector.svelte';
 
 	let isDropdownOpen = false;
 	let taskTitle = '';
-	let taskDescription = '';
 	let selectedUser = $user;
+	let showError = false;
 
 	const createTask = () => {
+		if (taskTitle === '') {
+			showError = true;
+			return;
+		}
 		const newTask: Task = {
 			id: Math.random(),
 			title: taskTitle,
-			description: taskDescription,
 			assignee: selectedUser,
 			completed: false
 		};
@@ -23,7 +27,6 @@
 		list.set(taskList);
 		// reset the form
 		taskTitle = '';
-		taskDescription = '';
 		selectedUser = $user;
 
 		isDropdownOpen = !isDropdownOpen;
@@ -31,7 +34,9 @@
 </script>
 
 <Dropdown bind:isOpen={isDropdownOpen}>
-	<Button callToAction slot="button">Ny</Button>
+	<Button callToAction slot="button">
+		<Icon iconName="zondicons:list-add" /></Button
+	>
 	<div class="dropdown-content" slot="content">
 		<h3>Lag nytt gjøremål</h3>
 		<!-- svelte-ignore a11y-autofocus because I want autofocus -->
@@ -43,17 +48,13 @@
 			autofocus
 		/>
 
-		<textarea
-			class="description-input"
-			placeholder="Beskrivelse (valgfritt)"
-			bind:value={taskDescription}
-		/>
-
 		<div class="center">
-			<span>Ansvarlig:</span>
 			<UserSelector bind:selectedUser />
 		</div>
 		<Button callToAction on:click={createTask}>Opprett gjøremål</Button>
+		{#if showError}
+			<span>Du må beskrive gjøremålet først!</span>
+		{/if}
 	</div>
 </Dropdown>
 
@@ -67,19 +68,19 @@
 			font-weight: 400;
 			margin: 0 0 var(--ma) 0;
 		}
-		input,
-		textarea {
+		input {
 			border-radius: var(--bo);
 			font-size: var(--fo-small);
 			padding: var(--pa-mini) var(--pa-small);
 			height: 2rem;
 			width: 13rem;
 			background-color: var(--light-blue-trans);
+			border: var(--border-small);
+			margin: var(--ma) 0;
 			&::placeholder {
 				color: var(--dark-grey);
 			}
 			color: var(--text-color);
-			border-style: none;
 			&:focus-visible {
 				outline: none;
 			}
@@ -90,9 +91,10 @@
 			height: 5rem;
 		}
 		.center {
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
+			margin: 0;
+		}
+		span {
+			color: var(--red);
 		}
 	}
 </style>

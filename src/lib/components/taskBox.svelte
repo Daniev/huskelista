@@ -21,10 +21,7 @@
 
 <style lang="scss">
 	.box {
-		width: 22rem;
-		max-height: 32rem;
-		// padding: var(--pa-small) var(--pa);
-
+		max-height: 33rem;
 		background-color: var(--white);
 		border-radius: var(--bo);
 		border: var(--border-small);
@@ -36,7 +33,6 @@
 		align-items: center;
 		padding: var(--pa-big) var(--pa-big) var(--pa-big);
 		height: 2rem;
-
 		border-bottom: solid var(--border-color) 1px;
 		h2 {
 			margin: 0;

@@ -7,13 +7,14 @@
 	import { fly } from 'svelte/transition';
 	import { list, user } from '$lib/stores';
 	import type { User } from '$lib/types/user';
+	import Icon from '$lib/components/Icon.svelte';
 
 	export let data: { user: User };
 
 	let showComplete = true;
-	let showText = 'Sjul';
+	let iconName = 'zondicons:cheveron-up';
 	$: $user = data.user;
-	$: showText = showComplete ? 'Vis' : 'Sjul';
+	$: iconName = showComplete ? 'zondicons:cheveron-up' : 'zondicons:cheveron-down';
 
 	const toggleShow = () => {
 		showComplete = !showComplete;
@@ -46,7 +47,9 @@
 		<div>
 			<div class="header">
 				<h2>Fullførte</h2>
-				<Button on:click={toggleShow}>{showText}</Button>
+				<Button on:click={toggleShow}>
+					<Icon {iconName} /></Button
+				>
 			</div>
 			{#if showComplete}
 				{#each $list as task}
@@ -70,7 +73,6 @@
 
 		.header {
 			display: flex;
-			justify-content: space-between;
 			align-items: center;
 			width: 22rem;
 
