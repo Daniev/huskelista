@@ -2,14 +2,19 @@
 	import ListEntry from '$lib/components/ListEntry.svelte';
 	import TaskBox from '$lib/components/taskBox.svelte';
 	import NewTaskDropdown from '$lib/components/NewTaskDropdown.svelte';
+	import Button from '$lib/components/Button.svelte';
 
 	import { fly } from 'svelte/transition';
 	import { list, user } from '$lib/stores';
 	import type { User } from '$lib/types/user';
+	import Icon from '$lib/components/Icon.svelte';
+
+	export let data: { user: User };
 
 	let showComplete = true;
-	export let data: { user: User };
+	let iconName = 'zondicons:cheveron-up';
 	$: $user = data.user;
+	$: iconName = showComplete ? 'zondicons:cheveron-up' : 'zondicons:cheveron-down';
 
 	const toggleShow = () => {
 		showComplete = !showComplete;
@@ -42,11 +47,9 @@
 		<div>
 			<div class="header">
 				<h2>Fullførte</h2>
-				{#if !showComplete}
-					<button on:click={toggleShow}>Vis</button>
-				{:else}
-					<button on:click={toggleShow}>Skjul</button>
-				{/if}
+				<Button on:click={toggleShow}>
+					<Icon {iconName} /></Button
+				>
 			</div>
 			{#if showComplete}
 				{#each $list as task}
@@ -70,12 +73,17 @@
 
 		.header {
 			display: flex;
-			justify-content: space-between;
 			align-items: center;
 			width: 22rem;
 
 			button {
 				padding: 0.5rem 1rem;
+			}
+		}
+		button {
+			&:hover {
+				background-color: var(--green);
+				color: var(--white-text-color);
 			}
 		}
 	}

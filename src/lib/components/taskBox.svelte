@@ -21,36 +21,38 @@
 
 <style lang="scss">
 	.box {
-		width: 22rem;
-		max-height: 32rem;
-		padding: (0.7rem);
-
+		max-height: 33rem;
 		background-color: var(--white);
-		border-radius: $border-sm;
+		border-radius: var(--bo);
+		border: var(--border-small);
 	}
 
 	.header {
 		display: flex;
 		justify-content: left;
 		align-items: center;
-		padding: $padding-sm;
+		padding: var(--pa-big) var(--pa-big) var(--pa-big);
 		height: 2rem;
-
 		border-bottom: solid var(--border-color) 1px;
+		h2 {
+			margin: 0;
+		}
 	}
 
 	.footer {
 		border-top: solid var(--border-color) 1px;
+		padding: 0 var(--pa) var(--pa);
 		display: flex;
 		justify-content: right;
 		align-items: center;
 	}
 
 	.list-container {
-		height: 21rem;
+		height: 20rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: $padding-sm;
+		padding: var(--pa);
+		margin-top: var(--ma);
 	}
 </style>

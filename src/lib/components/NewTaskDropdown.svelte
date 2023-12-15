@@ -1,19 +1,28 @@
 <script lang="ts">
 	import { list, user } from '$lib/stores';
 	import type { Task } from '$lib/types/tasks';
+	import Button from './Button.svelte';
 	import Dropdown from './Dropdown.svelte';
+	import Icon from './Icon.svelte';
 	import UserSelector from './UserSelector.svelte';
 
 	let isDropdownOpen = false;
 	let taskTitle = '';
-	let taskDescription = '';
 	let selectedUser = $user;
+	let showError = false;
+
+	$: if (isDropdownOpen) {
+		showError = false;
+	}
 
 	const createTask = () => {
+		if (taskTitle === '') {
+			showError = true;
+			return;
+		}
 		const newTask: Task = {
 			id: Math.random(),
 			title: taskTitle,
-			description: taskDescription,
 			assignee: selectedUser,
 			completed: false
 		};
@@ -22,17 +31,17 @@
 		list.set(taskList);
 		// reset the form
 		taskTitle = '';
-		taskDescription = '';
 		selectedUser = $user;
-
 		isDropdownOpen = !isDropdownOpen;
 	};
 </script>
 
 <Dropdown bind:isOpen={isDropdownOpen}>
-	<button class="new" slot="button">Ny</button>
+	<Button callToAction slot="button">
+		<Icon iconName="zondicons:list-add" /></Button
+	>
 	<div class="dropdown-content" slot="content">
-		<h2>Lag nytt gjøremål</h2>
+		<h3>Lag nytt gjøremål</h3>
 		<!-- svelte-ignore a11y-autofocus because I want autofocus -->
 		<input
 			class="title-input"
@@ -42,18 +51,13 @@
 			autofocus
 		/>
 
-		<textarea
-			class="description-input"
-			placeholder="Beskrivelse (valgfritt)"
-			bind:value={taskDescription}
-		/>
-
 		<div class="center">
-			<span>Ansvarlig:</span>
 			<UserSelector bind:selectedUser />
 		</div>
-
-		<button class="create" on:click={createTask}>Opprett gjøremål</button>
+		<Button callToAction on:click={createTask}>Opprett gjøremål</Button>
+		{#if showError}
+			<span>Du må beskrive gjøremålet først!</span>
+		{/if}
 	</div>
 </Dropdown>
 
@@ -61,62 +65,39 @@
 	.dropdown-content {
 		display: block;
 		width: 15rem;
-		padding: $padding-sm;
-		h2 {
-			font-size: 20px;
+		padding: var(--pa);
+		h3 {
+			font-size: var(--fo-medium);
+			font-weight: 400;
+			margin: 0 0 var(--ma) 0;
 		}
-		input,
-		textarea {
-			border-radius: 1rem;
-			font-size: 1rem;
-			padding: 0.2rem 0.75rem;
+		input {
+			border-radius: var(--bo);
+			font-size: var(--fo-small);
+			padding: var(--pa-mini) var(--pa-small);
 			height: 2rem;
 			width: 13rem;
 			background-color: var(--light-blue-trans);
+			border: var(--border-small);
+			margin: var(--ma) 0;
 			&::placeholder {
 				color: var(--dark-grey);
 			}
 			color: var(--text-color);
-			border-width: 1px;
-			border-style: none;
 			&:focus-visible {
 				outline: none;
 			}
 		}
 
-		.create {
-			padding: $padding-sm;
-			margin: 0 1rem 0 0;
-			font-size: 1.1rem;
-			background-color: var(--button-color);
-			margin: 0.6rem 0 0;
-			color: var(--white-text-color);
-			&:hover {
-				background-color: var(--button-hover-color);
-			}
-		}
-
 		.description-input {
-			margin-top: 1rem;
+			margin-top: var(--ma-medium);
 			height: 5rem;
 		}
 		.center {
-			display: flex;
-			padding: 0 0.6rem;
-			justify-content: flex-start;
-			align-items: center;
+			margin: 0;
 		}
-	}
-	.new {
-		border-radius: $border-lg;
-		height: 3rem;
-		width: 3rem;
-		background-color: var(--button-color);
-		color: var(--white-text-color);
-		margin: 0.6rem 0.6rem 0 0;
-
-		&:hover {
-			background-color: var(--button-hover-color);
+		span {
+			color: var(--red);
 		}
 	}
 </style>

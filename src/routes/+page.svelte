@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { user } from '$lib/stores';
 	import type { User } from '$lib/types/user';
 
 	const setUser = (user: User) => {
@@ -19,8 +18,8 @@
 
 <style lang="scss">
 	section {
-		height: 100vh;
-		width: 100vw;
+		height: 100svh;
+		width: 100svw;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -35,25 +34,25 @@
 	}
 
 	button {
+		--_bg: var(--bg-color-button, var(--mia-profile-color));
 		margin: 1rem;
 		height: 12rem;
 		width: 23rem;
-		font-size: $font-xl;
-		font-weight: bold;
+		font-size: var(--fo-xlarge);
+		font-family: var(--header-font);
+		line-height: var(--header-line-height);
+		font-weight: 500;
+		letter-spacing: var(--header-letter-spacing);
+		background-color: var(--grey);
+		&:hover {
+			background-color: var(--_bg);
+			color: var(--white-text-color);
+			font-weight: 700;
+		}
 	}
 
 	.dani {
-		background-color: var(--daniel-profile-color);
 		margin-right: 5rem;
-		&:hover {
-			background-color: var(--daniel-profile-color-darker);
-		}
-	}
-
-	.mia {
-		background-color: var(--mia-profile-color);
-		&:hover {
-			background-color: var(--mia-profile-color-darker);
-		}
+		--bg-color-button: var(--daniel-profile-color);
 	}
 </style>

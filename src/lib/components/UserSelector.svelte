@@ -2,57 +2,48 @@
 	import type { User } from '$lib/types/user';
 	import { users } from '$lib/stores';
 	import Dropdown from './Dropdown.svelte';
+	import Icon from './Icon.svelte';
 
 	export let selectedUser: User;
-
-	let isOpen = false;
-
 	const changeUser = (user: User) => {
 		selectedUser = user;
 	};
 </script>
 
-<Dropdown bind:isOpen placeBelow>
-	<button class="{selectedUser.toLowerCase()} clicker" slot="button">{selectedUser}</button>
-
-	<div slot="content" class="content">
-		{#each $users as user}
-			<button class="user" on:click={() => changeUser(user)}>{user}</button>
-		{/each}
-	</div>
-</Dropdown>
+<div class="content">
+	{#each $users as user}
+		<button
+			class:selected={user === selectedUser}
+			class={user.toLowerCase()}
+			on:click={() => changeUser(user)}
+		>
+			<Icon iconName="zondicons:user" />
+			{user}</button
+		>
+	{/each}
+</div>
 
 <style lang="scss">
-	.daniel {
-		background-color: var(--daniel-profile-color);
-		color: var(--white);
-	}
-	.mia {
-		background-color: var(--mia-profile-color);
-		color: var(--text-color);
-	}
-	.clicker {
-		padding: 0.5rem;
-		width: 6rem;
-		margin: 0.6rem 0.9rem;
+	button {
+		padding: var(--pa-small);
+
+		&:hover,
+		&:focus {
+			background-color: var(--new-blue);
+		}
 	}
 
-	.content {
-		padding: 0.5rem 0;
-		background-color: var(--white);
-		border-radius: 0 0 0.7rem;
+	.daniel {
+		margin: var(--ma) 0 var(--ma) var(--ma-big);
 	}
-	.user {
-		display: block;
-		border-radius: 0;
-		text-align: left;
-		padding: 0.3rem 0.8rem;
-		background-color: transparent;
-		width: 6rem;
-		height: 1.2rem;
-		margin: 0;
-		&:hover {
-			background-color: var(--light-grey);
+	.selected {
+		&.daniel {
+			background-color: var(--daniel-profile-color);
+			color: var(--white);
+		}
+		&.mia {
+			background-color: var(--mia-profile-color);
+			color: var(--text-color);
 		}
 	}
 </style>

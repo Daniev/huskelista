@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { Task } from '$lib/types/tasks';
+	import Icon from '$lib/components/Icon.svelte';
 
-	export let classes: 'mia' | 'green' | 'daniel' = 'green';
+	export let classes: 'mia' | 'completed' | 'daniel' = 'completed';
 	export let task: Task;
 
 	function handleClick() {
@@ -12,47 +13,59 @@
 
 <button class={classes} on:click={handleClick}>
 	<p>{task.title}</p>
+	<Icon iconName="zondicons:checkmark-outline" />
 </button>
 
 <style lang="scss">
 	button {
-		margin: 0;
-		margin-bottom: 5px;
+		margin: var(--ma);
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		outline: none;
 		text-align: left;
-		border-radius: 20px 20px 20px 0;
+		border-radius: var(--bo) var(--bo) var(--bo) 0;
+		--icon-fill-color: var(--green);
 	}
 	p {
 		text-decoration: none;
 		margin: 0;
 		width: 18.5rem;
 		height: 1rem;
-		padding: $padding-sm;
+		padding: var(--pa-small);
 	}
 
 	.daniel {
-		background-color: var(--daniel-task-color);
+		background-image: var(--gradient-blue);
 		color: var(--text-color);
 
 		&:hover {
-			background-color: var(--daniel-highlight-color);
+			background-image: none;
+			background-color: var(--green);
+			color: var(--white-text-color);
+			font-weight: 600;
+			--icon-fill-color: var(--white-text-color);
 		}
 	}
 
-	.green {
-		background-color: var(--matt-green);
-		color: var(--white-text-color);
+	.completed {
+		background-color: var(--light-grey);
+		color: var(--text-color);
+		border: var(--border-small);
 
 		&:hover {
-			background-color: var(--green);
+			background-color: var(--new-blue);
+			color: var(--white-text-color);
 		}
 	}
 
 	.mia {
-		background-color: var(--mia-task-color);
+		background-image: var(--gradient-blue);
 		color: var(--text-color);
 		&:hover {
+			background-image: none;
 			background-color: var(--mia-highlight-color);
+			font-weight: 600;
 		}
 	}
 </style>

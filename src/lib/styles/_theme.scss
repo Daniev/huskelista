@@ -1,17 +1,12 @@
-// fonts
-$font-sml: 16px;
-$font-md: 24px;
-$font-lg: 32px;
-$font-xl: 48px;
+@font-face {
+	font-family: "Work Sans";
+	src: url("fonts/WorkSans-VariableFont_wght.ttf") format("truetype");
+}
 
-// borders
-$border-sm: 15px;
-$border-lg: 84px;
-
-// padding:
-$padding-sm: 15px;
-$padding-md: 20px;
-$padding-lg: 25px;
+@font-face {
+	font-family: "Poppins";
+	src: url("fonts/Poppins-Regular.ttf") format("truetype");
+}
 
 :root {
 	--bg-color: hsl(0, 0%, 89%);
@@ -32,12 +27,12 @@ $padding-lg: 25px;
 	--mia-profile-color-darker: hsl(49, 94%, 60%);
 	--daniel-task-color: hsla(203, 33%, 53%, 0.5);
 	--daniel-highlight-color: hsl(203, 33%, 53%);
-	--daniel-profile-color: hsl(203, 33%, 53%);
+	--daniel-profile-color: var(--green);
 	--daniel-profile-color-darker: hsl(203, 33%, 46%);
 
 	--white: hsl(0, 0%, 100%);
 	--white-darker: hsl(0, 0%, 89%);
-	--light-grey: hsl(240, 0%, 65%);
+	--light-grey: #d6d6d6;
 	--light-brown: hsl(352, 12%, 73%);
 	--matt-green: hsl(140, 13%, 59%);
 	--green: hsl(148, 30%, 46%);
@@ -52,4 +47,38 @@ $padding-lg: 25px;
 	--light-blue: hsl(203, 33%, 53%);
 	--light-blue-trans: hsla(203, 33%, 53%, 0.5);
 	--lighter-blue: hsl(196, 50%, 53%);
+	--new-blue: hsl(206, 67%, 76%);
+	--new-blue-light: hsl(206, 67%, 86%);
+	--red: hsl(351, 56%, 69%);
+	// --light-grey: #d6d6d6;
+
+	--body-font: "Poppins";
+	--header-font: "Work Sans";
+	--header-letter-spacing: 0.2px;
+	--header-line-height: 1.2;
+
+	--fo-small: 14px;
+	--fo-medium: 24px;
+	--fo-large: 32px;
+	--fo-xlarge: 48px;
+
+	--pa: 15px;
+	--pa-mini: 5px;
+	--pa-small: 10px;
+	--pa-big: 30px;
+
+	--ma: 10px;
+	--ma-small: 5px;
+	--ma-medium: 15px;
+	--ma-big: 30px;
+
+	--bo-small: 0.4rem;
+	--bo: 0.8rem;
+	--bo-big: 84px;
+
+	--border-small: 0.25px solid var(--border-color);
+
+	--gradient-blue: linear-gradient(45deg,
+			var(--new-blue),
+			var(--new-blue-light))
 }
