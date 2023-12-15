@@ -11,6 +11,10 @@
 	let selectedUser = $user;
 	let showError = false;
 
+	$: if (isDropdownOpen) {
+		showError = false;
+	}
+
 	const createTask = () => {
 		if (taskTitle === '') {
 			showError = true;
@@ -28,7 +32,6 @@
 		// reset the form
 		taskTitle = '';
 		selectedUser = $user;
-
 		isDropdownOpen = !isDropdownOpen;
 	};
 </script>
