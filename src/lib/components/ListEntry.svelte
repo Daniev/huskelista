@@ -26,8 +26,7 @@
 		outline: none;
 		text-align: left;
 		border-radius: var(--bo) var(--bo) var(--bo) 0;
-		--icon-fill-color: red;
-		--icon-bg-color: blue;
+		--icon-fill-color: var(--green);
 	}
 	p {
 		text-decoration: none;
@@ -46,6 +45,7 @@
 			background-color: var(--green);
 			color: var(--white-text-color);
 			font-weight: 600;
+			--icon-fill-color: var(--white-text-color);
 		}
 	}
 
