@@ -10,13 +10,11 @@ NC='\033[0m' # No Color
 if [[ $1 == "f" ]];
 then
     echo -e "${BLUE}[INFO] Running frontend only...${NC}"
-    sudo docker-compose build
-    sudo docker-compose run --rm frontend
+    sudo docker-compose up --build frontend
 elif [[ $1 == "b" ]];
 then
     echo -e "${BLUE}[INFO] Running backend only...${NC}"
-    sudo docker-compose build
-    sudo docker-compose run --rm backend
+    sudo docker-compose up --build backend
 
 elif [[ $1 == "a" ]];
 then
