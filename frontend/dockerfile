@@ -1,0 +1,12 @@
+FROM node:lts-alpine
+
+WORKDIR /devrun
+
+COPY package*.json /devrun
+RUN npm install
+COPY . /devrun
+
+EXPOSE 5173
+
+# Set the command to run the application
+CMD ["npm", "run", "dev-docker" ]
