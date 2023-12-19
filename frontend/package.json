@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
+		"dev-docker": "vite dev --host 0.0.0.0",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -30,6 +31,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"axios": "^1.6.2",
 		"sass": "^1.64.2",
 		"svelte-preprocess": "^5.0.4"
 	}

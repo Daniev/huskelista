@@ -1,0 +1,14 @@
+#  Allow both backend and frontend to run in dev mode together.
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
