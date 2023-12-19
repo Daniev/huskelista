@@ -1,15 +1,10 @@
 import flask
-import datetime
+from data_setup import ensure_data_setup, wipe_existing_data, generate_test_tasks
 
-# add --host=0.0.0.0 to make visible externally...
-
+wipe_existing_data()  # only run when developing
+ensure_data_setup()
+generate_test_tasks()
 app = flask.Flask(__name__)
-
-
-def generate_slug(task_title: str) -> str:
-    """Add task title and current time to create slug"""
-    timenow = str(datetime.datetime.now())
-    return task_title + "_" + timenow
 
 
 @app.route("/")
