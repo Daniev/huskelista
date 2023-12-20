@@ -7,7 +7,7 @@ def generate_slug(task_title: str) -> str:
 
     title = task_title.replace(" ", "_")
     timenow = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    return title + "_" + timenow
+    return title + "_" + timenow.replace(" ", "_")
 
 
 def open_json(file_path: str, mode: str = "r", data=None):
