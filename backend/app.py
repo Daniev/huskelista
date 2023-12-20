@@ -9,7 +9,10 @@ from utils import open_json
 from data_manager import DataManager
 from logger import setup_logger
 
-# wipe_existing_data()  # only run when developing
+wipe = False
+
+if wipe:
+    wipe_existing_data()  # only run when developing
 status = ensure_data_setup()
 if status:
     generate_test_tasks()
