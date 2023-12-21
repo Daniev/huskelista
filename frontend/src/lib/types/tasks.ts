@@ -1,7 +1,7 @@
 import type { User } from './user';
 
 export interface Task {
-	id: number;
+	slug: string;
 	title: string;
 	assignee: User;
 	completed: boolean;

@@ -4,8 +4,5 @@ import type { User } from "$lib/types/user";
 
 const BASE_URL = FLASK_URL;
 export const API_URL = `${BASE_URL}/api/v1`
+export const TASK_URL = `${API_URL}/tasks/`
 
-
-export const getTasksURl = (user: User) => {
-    return `${API_URL}/${user.toLowerCase()}/tasks`
-}
