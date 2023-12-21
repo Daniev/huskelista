@@ -80,3 +80,14 @@ def test_get_tasks_all(client, data_manager):
     response = client.get("/api/v1/tasks/")
     assert response.status_code == 200, response.data
     assert b'"slug":' in response.data
+
+
+def test_get_task_success(client, tasks):
+    response = client.get(f"/api/v1/tasks/{tasks[0]['slug']}")
+    assert response.status_code == 200
+    assert b'"slug":' in response.data
+
+
+def test_get_task_wrong(client):
+    response = client.get("/api/v1/tasks/123")
+    assert response.status_code == 404
