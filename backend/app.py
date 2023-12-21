@@ -9,15 +9,16 @@ from utils import open_json
 from data_manager import DataManager
 from logger import setup_logger
 
+# various configuration and resetting of data
 wipe = False
-
 if wipe:
     wipe_existing_data()  # only run when developing
+
 status = ensure_data_setup()
 if status:
     generate_test_tasks()
-app = flask.Flask(__name__)
 
+app = flask.Flask(__name__)
 log = setup_logger()
 
 
@@ -36,10 +37,19 @@ def infoApi():
 
 @app.get("/api/v1/tasks/")
 def getTasks():
+    """Return all tasks beloing to the user, or all if no user is provided. Return 404 if no data is found"""
     user = flask.request.args.get("user")
     tasks: list = open_json(TASK_FILE, "r")
-    dataManager = DataManager(tasks)
-    return dataManager.get_tasks_by_user(user)
+    if len(tasks) == 0:
+        flask.abort(
+            404, description="No tasks found in database, you should create some"
+        )
+    if user is None:
+        return tasks
+    user_tasks = DataManager(tasks).get_tasks_by_user(user)
+    if len(user_tasks) == 0:
+        flask.abort(404, description="No tasks found for user")
+    return user_tasks
 
 
 @app.get("/api/v1/tasks/<slug>")
