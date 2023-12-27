@@ -62,6 +62,14 @@ def create_task():
     return task
 
 
+@app.delete("/api/v1/tasks/<slug>")
+def delete_task(slug):
+    """Handle the delete request for a single task element"""
+    dm = DataManager()
+    dm.delete_task(slug)
+    return "", 204
+
+
 @app.get("/api/v1/tasks/<slug>")
 def getTask(slug):
     """Return a single task element or 404 if not found"""

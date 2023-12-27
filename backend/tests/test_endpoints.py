@@ -86,3 +86,8 @@ def test_post_task(client):
     response = client.post("/api/v1/tasks/", json={"title": "test", "assignee": "test"})
     assert response.status_code == 200
     assert b'"slug":' in response.data
+
+
+def test_delete_task(client, tasks):
+    response = client.delete(f"/api/v1/tasks/{tasks[0]['slug']}")
+    assert response.status_code == 204

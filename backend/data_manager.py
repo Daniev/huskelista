@@ -22,6 +22,9 @@ class DataManager:
 
     def add_task_to_file(self, task) -> None:
         """Generates a slug and add task to json file"""
+        if task == [] or task is None:
+            self.warn("Empty task")
+            return
         task["slug"] = generate_slug(task["title"])
         tasks = open_json(TASK_FILE, "r")
         if tasks:
@@ -29,3 +32,8 @@ class DataManager:
         else:
             tasks = [task]
         open_json(TASK_FILE, "w", tasks)
+
+    def delete_task(self, slug):
+        tasks = open_json(TASK_FILE, "r")
+        new_tasks = [task for task in tasks if task["slug"] != slug]
+        open_json(TASK_FILE, "w", new_tasks)
