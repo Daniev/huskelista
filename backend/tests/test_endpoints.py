@@ -13,17 +13,6 @@ app.config.update(
 )
 
 
-# def app():
-#     app = flask.current_app()
-
-#     app.config.update(
-#         {
-#             "TESTING": True,
-#         }
-#     )
-#     yield app
-
-
 @pytest.fixture
 def client():
     return app.test_client()
@@ -76,7 +65,7 @@ def test_get_tasks_empty(client):
     assert response.status_code == 404, response.status_code
 
 
-def test_get_tasks_all(client, data_manager):
+def test_get_tasks_all(client):
     response = client.get("/api/v1/tasks/")
     assert response.status_code == 200, response.data
     assert b'"slug":' in response.data

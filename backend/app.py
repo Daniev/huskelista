@@ -1,4 +1,5 @@
 import flask
+import json
 from data_setup import (
     ensure_data_setup,
     wipe_existing_data,
@@ -50,6 +51,15 @@ def getTasks():
     if len(user_tasks) == 0:
         flask.abort(404, description="No tasks found for user")
     return user_tasks
+
+
+@app.post("/api/v1/tasks/")
+def create_task():
+    """Create a new task element"""
+    task = json.loads(flask.request.data)
+    dm = DataManager()
+    dm.add_task_to_file(task)
+    return task
 
 
 @app.get("/api/v1/tasks/<slug>")

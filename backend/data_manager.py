@@ -1,10 +1,11 @@
 from logger import setup_logger
+from utils import open_json, TASK_FILE, generate_slug
 
 
 class DataManager:
     """Manage the data, send and retrieve portions of the data and convert to json"""
 
-    def __init__(self, data: list):
+    def __init__(self, data: list = []):
         self.data: list = data
         self.log = setup_logger()
 
@@ -17,3 +18,13 @@ class DataManager:
             if task["slug"] == slug:
                 return task
         return None
+
+    def add_task_to_file(self, task) -> None:
+        """Generates a slug and add task to json file"""
+        task["slug"] = generate_slug(task.title)
+        tasks = open_json(TASK_FILE, "r")
+        if tasks:
+            tasks.append(task)
+        else:
+            tasks = [task]
+        open_json(TASK_FILE, "w", tasks)
