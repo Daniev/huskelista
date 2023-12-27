@@ -80,3 +80,9 @@ def test_get_task_success(client, tasks):
 def test_get_task_wrong(client):
     response = client.get("/api/v1/tasks/123")
     assert response.status_code == 404
+
+
+def test_post_task(client):
+    response = client.post("/api/v1/tasks/", json={"title": "test", "assignee": "test"})
+    assert response.status_code == 200
+    assert b'"slug":' in response.data

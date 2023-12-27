@@ -1,5 +1,6 @@
 from logger import setup_logger
-from utils import open_json, TASK_FILE, generate_slug
+from utils import open_json, generate_slug
+from data_setup import TASK_FILE
 
 
 class DataManager:
@@ -21,7 +22,7 @@ class DataManager:
 
     def add_task_to_file(self, task) -> None:
         """Generates a slug and add task to json file"""
-        task["slug"] = generate_slug(task.title)
+        task["slug"] = generate_slug(task["title"])
         tasks = open_json(TASK_FILE, "r")
         if tasks:
             tasks.append(task)
