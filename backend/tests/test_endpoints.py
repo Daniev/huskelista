@@ -1,8 +1,7 @@
 import flask
-from data_manager import DataManager
+from data_manager import DataManager, FilePaths
 from utils import open_json
 import pytest
-from data_setup import TASK_FILE
 from app import app
 
 
@@ -19,13 +18,18 @@ def client():
 
 
 @pytest.fixture
-def tasks():
-    return open_json(TASK_FILE, "r")
+def filepaths():
+    return FilePaths("./data/tasks.json")
 
 
 @pytest.fixture
-def data_manager(tasks):
-    return DataManager(tasks)
+def tasks(filepaths):
+    return open_json(filepaths.TASK_FILE, "r")
+
+
+@pytest.fixture
+def data_manager(filepaths):
+    return DataManager(filepaths)
 
 
 def test_get_tasks():
@@ -89,5 +93,5 @@ def test_post_task(client):
 
 
 def test_delete_task(client, tasks):
-    response = client.delete(f"/api/v1/tasks/{tasks[0]['slug']}")
+    response = client.delete(f"/api/v1/tasks/{tasks[len(tasks)-1]['slug']}")
     assert response.status_code == 204
