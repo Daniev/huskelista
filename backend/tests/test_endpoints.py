@@ -1,8 +1,7 @@
 import flask
-from data_manager import DataManager
+from data_manager import DataManager, FilePaths
 from utils import open_json
 import pytest
-from data_setup import TASK_FILE
 from app import app
 
 
@@ -13,30 +12,24 @@ app.config.update(
 )
 
 
-# def app():
-#     app = flask.current_app()
-
-#     app.config.update(
-#         {
-#             "TESTING": True,
-#         }
-#     )
-#     yield app
-
-
 @pytest.fixture
 def client():
     return app.test_client()
 
 
 @pytest.fixture
-def tasks():
-    return open_json(TASK_FILE, "r")
+def filepaths():
+    return FilePaths("./data/tasks.json")
 
 
 @pytest.fixture
-def data_manager(tasks):
-    return DataManager(tasks)
+def tasks(filepaths):
+    return open_json(filepaths.TASK_FILE, "r")
+
+
+@pytest.fixture
+def data_manager(filepaths):
+    return DataManager(filepaths)
 
 
 def test_get_tasks():
@@ -76,7 +69,7 @@ def test_get_tasks_empty(client):
     assert response.status_code == 404, response.status_code
 
 
-def test_get_tasks_all(client, data_manager):
+def test_get_tasks_all(client):
     response = client.get("/api/v1/tasks/")
     assert response.status_code == 200, response.data
     assert b'"slug":' in response.data
@@ -91,3 +84,14 @@ def test_get_task_success(client, tasks):
 def test_get_task_wrong(client):
     response = client.get("/api/v1/tasks/123")
     assert response.status_code == 404
+
+
+def test_post_task(client):
+    response = client.post("/api/v1/tasks/", json={"title": "test", "assignee": "test"})
+    assert response.status_code == 200
+    assert b'"slug":' in response.data
+
+
+def test_delete_task(client, tasks):
+    response = client.delete(f"/api/v1/tasks/{tasks[len(tasks)-1]['slug']}")
+    assert response.status_code == 204

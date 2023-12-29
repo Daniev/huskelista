@@ -1,5 +1,9 @@
 import datetime
 import json
+from logger import setup_logger
+
+
+log = setup_logger()
 
 
 def generate_slug(task_title: str) -> str:
@@ -13,11 +17,19 @@ def generate_slug(task_title: str) -> str:
 def open_json(file_path: str, mode: str = "r", data=None):
     """Read and write to json file! If write, it returns the data"""
     if mode == "r":
-        with open(file_path, mode, encoding="utf-8") as f:
-            return json.load(f)
+        try:
+            with open(file_path, mode, encoding="utf-8") as f:
+                return json.load(f)
+        except json.decoder.JSONDecodeError:
+            log.warn("Failed to read json file...")
+            return None
 
     elif mode == "w" and data is not None:
-        with open(file_path, mode, encoding="utf-8") as f:
-            json.dump(data, f)
+        try:
+            with open(file_path, mode, encoding="utf-8") as f:
+                json.dump(data, f)
+        except json.decoder.JSONDecodeError:
+            log.warn("Failed to write json file...")
+            return None
     else:
         raise ValueError("Invalid mode")
