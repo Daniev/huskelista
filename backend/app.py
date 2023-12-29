@@ -32,7 +32,7 @@ def getTasks():
     """Return all tasks beloing to the user, or all if no user is provided. Return 404 if no data is found"""
     user = flask.request.args.get("user")
     user_tasks = dm.get_tasks_by_user(user)
-    if len(user_tasks) == 0:
+    if user_tasks is None:
         flask.abort(
             404,
             description="No tasks found in database for the provided user, you should create some",

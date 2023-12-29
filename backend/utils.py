@@ -22,6 +22,7 @@ def open_json(file_path: str, mode: str = "r", data=None):
                 return json.load(f)
         except json.decoder.JSONDecodeError:
             log.warn("Failed to read json file...")
+            return None
 
     elif mode == "w" and data is not None:
         try:
@@ -29,5 +30,6 @@ def open_json(file_path: str, mode: str = "r", data=None):
                 json.dump(data, f)
         except json.decoder.JSONDecodeError:
             log.warn("Failed to write json file...")
+            return None
     else:
         raise ValueError("Invalid mode")
