@@ -4,5 +4,5 @@ export interface Task {
 	slug: string;
 	title: string;
 	assignee: User;
-	completed: boolean;
+	complete: boolean;
 }

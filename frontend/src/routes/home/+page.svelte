@@ -6,14 +6,14 @@
 
 	import { fly } from 'svelte/transition';
 	import { list, user } from '$lib/stores';
-	import type { User } from '$lib/types/user';
 	import Icon from '$lib/components/Icon.svelte';
 
-	export let data: { user: User };
+	export let data;
 
 	let showComplete = true;
 	let iconName = 'zondicons:cheveron-up';
 	$: $user = data.user;
+	$: $list = data.response;
 	$: iconName = showComplete ? 'zondicons:cheveron-up' : 'zondicons:cheveron-down';
 
 	const toggleShow = () => {
@@ -28,7 +28,7 @@
 		<TaskBox title="Gjøremål">
 			<div slot="taskList">
 				{#each $list as task}
-					{#if task.completed === false}
+					{#if task.complete === false}
 						<div transition:fly={{ x: 500, duration: 200 }}>
 							{#if $user === 'Daniel'}
 								<ListEntry classes="daniel" bind:task />
