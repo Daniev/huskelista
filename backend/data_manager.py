@@ -32,7 +32,11 @@ class DataManager:
     def get_tasks_by_user(self, user: str) -> list:
         tasks = self.get_tasks()
         if user is not None and tasks is not None:
-            tasks = [task for task in tasks if task["assignee"].lower() == user.lower()]
+            tasks = [
+                task
+                for task in tasks
+                if task["assignee"] and task["assignee"].lower() == user.lower()
+            ]
         if tasks == []:
             tasks = None
         return tasks
