@@ -44,6 +44,9 @@ def getTasks():
 def create_task():
     """Create a new task element"""
     task = json.loads(flask.request.data)
+    log.info("Adding task: " + str(task))
+    if task["title"] is None:
+        task = None
     dm.add_task_to_file(task)
     return task
 

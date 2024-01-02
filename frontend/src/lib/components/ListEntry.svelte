@@ -6,7 +6,7 @@
 	export let task: Task;
 
 	function handleClick() {
-		task.completed = !task.completed;
+		task.complete = !task.complete;
 		task = task;
 	}
 </script>
