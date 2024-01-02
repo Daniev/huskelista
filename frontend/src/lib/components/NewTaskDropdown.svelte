@@ -93,10 +93,6 @@
 			}
 		}
 
-		.description-input {
-			margin-top: var(--ma-medium);
-			height: 5rem;
-		}
 		.center {
 			margin: 0;
 		}

@@ -9,7 +9,6 @@
 	import Icon from '$lib/components/Icon.svelte';
 
 	export let data;
-	export let form; // there is a form in the NewTaskDropdown
 
 	let showComplete = true;
 	let iconName = 'zondicons:cheveron-up';
@@ -54,7 +53,7 @@
 			</div>
 			{#if showComplete}
 				{#each $list as task}
-					{#if task.completed}
+					{#if task.complete}
 						<div transition:fly={{ x: -500, duration: 200 }}>
 							<ListEntry bind:task />
 						</div>
