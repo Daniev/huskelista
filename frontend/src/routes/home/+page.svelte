@@ -75,16 +75,6 @@
 			display: flex;
 			align-items: center;
 			width: 22rem;
-
-			button {
-				padding: 0.5rem 1rem;
-			}
-		}
-		button {
-			&:hover {
-				background-color: var(--green);
-				color: var(--white-text-color);
-			}
 		}
 	}
 </style>
