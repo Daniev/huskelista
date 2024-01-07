@@ -8,6 +8,7 @@
 </script>
 
 <header>
+	<img src="Logo.png" alt="logo" />
 	<a href="/">
 		<Button on:click={logout}>Logg ut</Button>
 	</a>
@@ -27,5 +28,9 @@
 
 	a {
 		margin: 0 var(--ma-big);
+	}
+	img {
+		height: 3.5rem;
+		margin-right: 41.5svw;
 	}
 </style>
