@@ -39,7 +39,7 @@
 		--button-background: var(--new-blue);
 	}
 	.mia {
-		--hover-color: var(--mia-profile-color);
-		--hover-text: var(--text-color);
+		--_hover-color: var(--hover-color, var(--mia-profile-color));
+		--_hover-text: var(--hover-text, var(--text-color));
 	}
 </style>
