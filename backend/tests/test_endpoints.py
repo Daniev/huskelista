@@ -95,3 +95,11 @@ def test_post_task(client):
 def test_delete_task(client, tasks):
     response = client.delete(f"/api/v1/tasks/{tasks[len(tasks)-1]['slug']}")
     assert response.status_code == 204
+
+
+def test_edit_task(client, tasks):
+    response = client.put(
+        f"/api/v1/tasks/{tasks[0]['slug']}",
+        json={"slug": tasks[0]["slug"], "title": "test", "assignee": "test"},
+    )
+    assert response.status_code == 200
