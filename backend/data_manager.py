@@ -41,19 +41,20 @@ class DataManager:
             tasks = None
         return tasks
 
-    def get_task_by_slug(self, slug) -> dict:
+    def get_task_by_slug(self, slug=None) -> dict:
         tasks = self.get_tasks()
         for task in tasks:
             if task["slug"] == slug:
                 return task
         return None
 
-    def add_task_to_file(self, task) -> None:
+    def create_task(self, task, slug=None) -> None:
         """Generates a slug and add task to json file"""
         if task == [] or task is None:
             self.log.warn("Empty task")
             return
-        task["slug"] = generate_slug(task["title"])
+        if slug is None:
+            task["slug"] = generate_slug(task["title"])
         tasks = self.get_tasks()
         if tasks is not None:
             tasks.append(task)

@@ -47,7 +47,7 @@ def create_task():
     log.info("Adding task: " + str(task))
     if task["title"] is None:
         task = None
-    dm.add_task_to_file(task)
+    dm.create_task(task)
     return task
 
 
@@ -59,7 +59,7 @@ def delete_task(slug):
 
 
 @app.get("/api/v1/tasks/<slug>")
-def getTask(slug):
+def get_task(slug):
     """Return a single task element or 404 if not found"""
     slug_task = dm.get_task_by_slug(slug)
     if slug_task is None:
@@ -67,5 +67,12 @@ def getTask(slug):
     return slug_task
 
 
-with app.test_request_context():
-    print(flask.url_for("getTask", slug="Vask_bad_2023-12-20_22:42:10"))
+@app.put("/api/v1/tasks/<slug>")
+def update_task(slug):
+    """Handle the update request for a single task element"""
+    task = json.loads(flask.request.data)
+    if not task:
+        flask.abort(404, description="No task provided")
+    dm.delete_task(task["slug"])
+    dm.create_task(task, task["slug"])
+    return task

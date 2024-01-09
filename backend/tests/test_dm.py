@@ -62,7 +62,7 @@ def test_get_tasks_by_user_invalid(dm):
 
 def test_add_task_to_file(dm):
     task = {"title": "testAdd", "assignee": "daniel", "complete": False}
-    dm.add_task_to_file(task)
+    dm.create_task(task)
     tasks = dm.get_tasks()
     assert task in tasks
 
