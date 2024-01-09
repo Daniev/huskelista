@@ -1,13 +1,16 @@
 <script lang="ts">
 	import type { Task } from '$lib/types/tasks';
 	import Icon from '$lib/components/Icon.svelte';
+	import axios from 'axios';
+	import { TASK_URL } from '$lib/api/urls';
 
 	export let classes: 'mia' | 'completed' | 'daniel' = 'completed';
 	export let task: Task;
 
-	function handleClick() {
+	async function handleClick() {
 		task.complete = !task.complete;
 		task = task;
+		await axios.put(`${TASK_URL}${task.slug}`, task).catch((error) => console.warn(error));
 	}
 </script>
 
