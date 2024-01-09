@@ -28,7 +28,7 @@
 		padding: var(--pa-small) var(--pa);
 		margin: var(--ma) 0;
 		&:hover,
-		&:focus {
+		&:focus-visible {
 			background-color: var(--_hover-color);
 			color: var(--_hover-text);
 			font-weight: 500;
