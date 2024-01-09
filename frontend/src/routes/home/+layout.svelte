@@ -8,6 +8,7 @@
 </script>
 
 <header>
+	<div />
 	<img src="Logo.png" alt="logo" />
 	<a href="/">
 		<Button on:click={logout}>Logg ut</Button>
@@ -21,7 +22,7 @@
 		width: 100svw;
 		height: 3.8rem;
 		display: flex;
-		justify-content: right;
+		justify-content: space-between;
 		align-items: center;
 		background-color: var(--matt-green);
 	}
@@ -31,6 +32,5 @@
 	}
 	img {
 		height: 3.5rem;
-		margin-right: 41.5svw;
 	}
 </style>
