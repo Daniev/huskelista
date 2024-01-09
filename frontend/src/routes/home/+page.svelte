@@ -39,6 +39,9 @@
 						</div>
 					{/if}
 				{/each}
+				{#if $list.filter((t) => t.complete === false).length === 0}
+					<div class="none">Ingen gjøremål! Kanskje du skal hjelpe partneren din?</div>
+				{/if}
 			</div>
 			<div slot="bottom">
 				<NewTaskDropdown />
@@ -61,6 +64,9 @@
 						</div>
 					{/if}
 				{/each}
+				{#if $list.filter((t) => t.complete).length === 0}
+					<div class="none">Ingen fullførte gjøremål! Kanskje du skal gjøre noen?</div>
+				{/if}
 			{/if}
 		</div>
 	</section>
@@ -73,6 +79,10 @@
 		justify-content: center;
 		align-items: center;
 
+		h2 {
+			margin-right: var(--ma);
+		}
+
 		.header {
 			display: flex;
 			align-items: center;
@@ -82,6 +92,9 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+		}
+		.none {
+			color: var(--text-color);
 		}
 	}
 </style>
