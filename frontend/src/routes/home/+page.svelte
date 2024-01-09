@@ -7,6 +7,7 @@
 	import { fly } from 'svelte/transition';
 	import { list, user } from '$lib/stores';
 	import Icon from '$lib/components/Icon.svelte';
+	import Trash from '$lib/components/Trash.svelte';
 
 	export let data;
 
@@ -54,8 +55,9 @@
 			{#if showComplete}
 				{#each $list as task}
 					{#if task.complete}
-						<div transition:fly={{ x: -500, duration: 200 }}>
+						<div transition:fly={{ x: -500, duration: 200 }} class="center">
 							<ListEntry bind:task />
+							<Trash taskSlug={task.slug || ''} />
 						</div>
 					{/if}
 				{/each}
@@ -75,6 +77,11 @@
 			display: flex;
 			align-items: center;
 			width: 22rem;
+		}
+		.center {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 	}
 </style>

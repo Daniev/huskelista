@@ -28,7 +28,7 @@
 		padding: var(--pa-small) var(--pa);
 		margin: var(--ma) 0;
 		&:hover,
-		&:focus {
+		&:focus-visible {
 			background-color: var(--_hover-color);
 			color: var(--_hover-text);
 			font-weight: 500;
@@ -39,7 +39,7 @@
 		--button-background: var(--new-blue);
 	}
 	.mia {
-		--hover-color: var(--mia-profile-color);
-		--hover-text: var(--text-color);
+		--_hover-color: var(--hover-color, var(--mia-profile-color));
+		--_hover-text: var(--hover-text, var(--text-color));
 	}
 </style>
