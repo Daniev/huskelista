@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { list, user } from '$lib/stores';
-	import type { Task } from '$lib/types/tasks';
+	import { user } from '$lib/stores';
 	import Button from './Button.svelte';
 	import Dropdown from './Dropdown.svelte';
 	import Icon from './Icon.svelte';
@@ -16,20 +15,12 @@
 		showError = false;
 	}
 
+	/** The sending is handled by the layout.server and form submittions */
 	const createTask = () => {
 		if (taskTitle === '') {
 			showError = true;
 			return;
 		}
-		const newTask: Task = {
-			title: taskTitle,
-			assignee: selectedUser,
-			complete: false
-		};
-		const taskList = $list;
-		taskList.push(newTask);
-		list.set(taskList);
-		// reset the form
 		taskTitle = '';
 		selectedUser = $user;
 		isDropdownOpen = !isDropdownOpen;
@@ -54,9 +45,7 @@
 			/>
 
 			<input type="hidden" name="assignee" bind:value={selectedUser} />
-			<div class="center">
-				<UserSelector bind:selectedUser />
-			</div>
+			<UserSelector bind:selectedUser />
 			<Button callToAction on:click={createTask}>Opprett gjøremål</Button>
 			{#if showError}
 				<span>Du må beskrive gjøremålet først!</span>
