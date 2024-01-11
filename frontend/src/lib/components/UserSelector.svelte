@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { User } from '$lib/types/user';
 	import { users } from '$lib/stores';
-	import Dropdown from './Dropdown.svelte';
 	import Icon from './Icon.svelte';
 
 	export let selectedUser: User;
@@ -10,22 +9,36 @@
 	};
 </script>
 
-<div class="content">
+<section>
 	{#each $users as user}
-		<button
+		<div
 			class:selected={user === selectedUser}
 			class={user.toLowerCase()}
 			on:click={() => changeUser(user)}
+			on:keypress={() => changeUser(user)}
+			role="button"
+			tabindex="0"
 		>
 			<Icon iconName="zondicons:user" />
-			{user}</button
-		>
+			{user}
+		</div>
 	{/each}
-</div>
+</section>
 
 <style lang="scss">
-	button {
-		padding: var(--pa-small);
+	section {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		width: 12.6rem;
+	}
+	div {
+		background-color: var(--light-grey);
+		border-radius: var(--bo);
+		padding: var(--pa) var(--pa-small);
+		cursor: pointer;
+		justify-content: center;
+		align-items: center;
 
 		&:hover,
 		&:focus {
