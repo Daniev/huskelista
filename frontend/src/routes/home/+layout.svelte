@@ -33,4 +33,7 @@
 	img {
 		height: 3.5rem;
 	}
+	div {
+		width: 4.25rem; // centers the icon..
+	}
 </style>

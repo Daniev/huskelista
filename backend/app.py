@@ -72,7 +72,7 @@ def update_task(slug):
     """Handle the update request for a single task element"""
     task = json.loads(flask.request.data)
     if not task:
-        flask.abort(404, description="No task provided")
+        flask.abort(400, description="No task provided")
     dm.delete_task(task["slug"])
     dm.create_task(task, task["slug"])
     return task
