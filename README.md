@@ -4,7 +4,9 @@ Huskelista er en komplett liten todo webapp for å fordele husoppgavene mellom m
 og en enkel webapi som håndterer lagring.
 
 
-https://github.com/Daniev/husansvar/assets/81805034/c56c2a7f-f873-435d-8bed-316e4f061bc2
+
+
+https://github.com/Daniev/huskelista/assets/81805034/db3618b9-35b8-4ee6-9fba-3d5fe795005d
 
 
 ## Prøv det selv
