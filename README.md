@@ -1,10 +1,12 @@
-# Husansvar
+# Huskelista
 
-Husansvar er en komplett liten todo webapp for å fordele husoppgavene mellom meg og kona. Den tilbyr en simpel frontend laget med SvelteKit
+Huskelista er en komplett liten todo webapp for å fordele husoppgavene mellom meg og kona. Den tilbyr en simpel frontend laget med SvelteKit
 og en enkel webapi som håndterer lagring.
 
 
-https://github.com/Daniev/husansvar/assets/81805034/c56c2a7f-f873-435d-8bed-316e4f061bc2
+
+
+https://github.com/Daniev/huskelista/assets/81805034/db3618b9-35b8-4ee6-9fba-3d5fe795005d
 
 
 ## Prøv det selv
@@ -34,7 +36,7 @@ Dokumentasjon for webapiet fås [her](backend/docs/apidoc.md)
 | /tasks/{slug}    | DELETE | Delete a single task |        | 204            | 404, 405       |
 
 # English
-Husanvar is a complete small todo app for assigning house chores for me and my wife. If comprises of a simple frontend written with SvelteKit and a small
+Huskelista is a complete small todo app for assigning house chores for me and my wife. If comprises of a simple frontend written with SvelteKit and a small
 webapi that handles the storage of tasks.
 
 To run locally, clone the repository, start docker and run the following commands in bash from within the repository folder:
