@@ -34,7 +34,7 @@
 	<div class="dropdown-content" slot="content">
 		<form method="POST" use:enhance>
 			<h3>Lag nytt gjøremål</h3>
-			<!-- svelte-ignore a11y-autofocus because I want autofocus -->
+			<!-- svelte-ignore a11y-autofocus -->
 			<input
 				class="title-input"
 				type="text"
@@ -82,9 +82,6 @@
 			}
 		}
 
-		.center {
-			margin: 0;
-		}
 		span {
 			color: var(--red);
 		}
