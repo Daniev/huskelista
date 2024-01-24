@@ -1,11 +1,11 @@
 @font-face {
-	font-family: "Work Sans";
-	src: url("fonts/WorkSans-VariableFont_wght.ttf") format("truetype");
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
-	font-family: "Poppins";
-	src: url("fonts/Poppins-Regular.ttf") format("truetype");
+	font-family: 'Poppins';
+	src: url('fonts/Poppins-Regular.ttf') format('truetype');
 }
 
 :root {
@@ -52,8 +52,8 @@
 	--red: hsl(351, 56%, 69%);
 	// --light-grey: #d6d6d6;
 
-	--body-font: "Poppins";
-	--header-font: "Work Sans";
+	--body-font: 'Poppins';
+	--header-font: 'Work Sans';
 	--header-letter-spacing: 0.2px;
 	--header-line-height: 1.2;
 
@@ -78,7 +78,5 @@
 
 	--border-small: 0.25px solid var(--border-color);
 
-	--gradient-blue: linear-gradient(45deg,
-			var(--new-blue),
-			var(--new-blue-light))
+	--gradient-blue: linear-gradient(45deg, var(--new-blue), var(--new-blue-light));
 }

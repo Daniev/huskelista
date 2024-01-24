@@ -23,7 +23,7 @@ jobs:
       run: |
         cd frontend
         npm install
-    - name: Lint code
+    - name: Run svelte check and linting
       run: |
         cd frontend
         npm run check
