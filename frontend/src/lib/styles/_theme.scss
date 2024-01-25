@@ -9,11 +9,11 @@
 }
 
 :root {
-	--bg-color: hsl(0, 0%, 89%);
+	--bg-color: hsl(0,0%,100%);
 	--white-text-color: #fdfffc;
 	--text-color: #040a10;
 	--header-color: #235789;
-	--border-color: #a0acad;
+	--border-color: #e0e3e4;
 
 	--button-color: hsl(140, 13%, 59%);
 	--button-hover-color: hsl(148, 30%, 46%);
@@ -76,7 +76,7 @@
 	--bo: 0.8rem;
 	--bo-big: 84px;
 
-	--border-small: 0.25px solid var(--border-color);
+	--border-small: 0.10px solid var(--border-color);
 
 	--gradient-blue: linear-gradient(45deg, var(--new-blue), var(--new-blue-light));
 }
