@@ -1,9 +1,11 @@
 import flask
+from flask_cors import CORS
 import json
 from data_manager import DataManager, FilePaths
 from logger import setup_logger
 
 app = flask.Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
 fp = FilePaths("./data/tasks.json")
 dm = DataManager(fp)
 
