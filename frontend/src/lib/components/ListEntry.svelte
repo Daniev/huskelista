@@ -68,6 +68,8 @@
 		&:hover {
 			background-image: none;
 			background-color: var(--mia-highlight-color);
+			color: var(--white-text-color);
+			--icon-fill-color: var(--white-text-color);
 			font-weight: 600;
 		}
 	}

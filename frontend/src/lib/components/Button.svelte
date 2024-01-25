@@ -42,6 +42,6 @@
 	}
 	.mia {
 		--_hover-color: var(--hover-color, var(--mia-profile-color));
-		--_hover-text: var(--hover-text, var(--text-color));
+		--_hover-text: var(--hover-text, var(--white-text-color));
 	}
 </style>

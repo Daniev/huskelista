@@ -52,11 +52,11 @@
 	.selected {
 		&.daniel {
 			background-color: var(--daniel-profile-color);
-			color: var(--white);
+			color: var(--white-text-color);
 		}
 		&.mia {
 			background-color: var(--mia-profile-color);
-			color: var(--text-color);
+			color: var(--white-text-color);
 		}
 	}
 </style>
