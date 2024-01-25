@@ -76,7 +76,7 @@
 	--bo: 0.8rem;
 	--bo-big: 84px;
 
-	--border-small: 0.10px solid var(--border-color);
+	--border-small: 0.10px solid var(--custom-border-color, var(--border-color));
 
 	--gradient-blue: linear-gradient(45deg, var(--new-blue), var(--new-blue-light));
 }

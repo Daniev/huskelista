@@ -8,13 +8,10 @@
 	export let isOpen = false;
 	/** Place the dropdown below instaed of above*/
 	export let placeBelow = false;
-
 	/**styles content as a side menu*/
 	export let isSideMenu = false;
-
 	/** disables click outside*/
 	export let disableClickOutside = false;
-
 	/** Disable popup animation*/
 	export let disableAnimation = false;
 
@@ -82,9 +79,11 @@
 		transform: translate(15%, -30%);
 	}
 	.isSideMenu {
+		border: none;
+		border-right: var(--border-small);
 		top: 0;
 		right: 5;
-		transform: translate(0%, 6.8%);
+		transform: translate(0%, 6.4%);
 		border-radius: 0;
 	}
 </style>

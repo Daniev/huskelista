@@ -33,7 +33,7 @@
 	p {
 		text-decoration: none;
 		margin: 0;
-		width: 18.5rem;
+		width: var(--list-width, 18.5rem);
 		height: 1rem;
 		padding: var(--pa-small);
 	}
