@@ -9,6 +9,12 @@
 	/** Place the dropdown below instaed of above*/
 	export let placeBelow = false;
 
+	/**styles content as a side menu*/
+	export let isSideMenu = false;
+
+	/** disables click outside*/
+	export let disableClickOutside = false;
+
 	/** Disable popup animation*/
 	export let disableAnimation = false;
 
@@ -18,6 +24,9 @@
 
 	function handleClickOutside(event: Event) {
 		if (!dropdownElement) {
+			return;
+		}
+		if (disableClickOutside) {
 			return;
 		}
 		if (
@@ -45,7 +54,12 @@
 		</div>
 	</section>
 	{#if isOpen}
-		<section class="dropdown-section" class:placeBelow transition:fly={transitionSettings}>
+		<section
+			class="dropdown-section"
+			class:placeBelow
+			class:isSideMenu
+			transition:fly={transitionSettings}
+		>
 			<slot name="content">
 				<span>Dropdown content</span>
 			</slot>
@@ -66,5 +80,11 @@
 		top: -1;
 		right: 5;
 		transform: translate(15%, -30%);
+	}
+	.isSideMenu {
+		top: 0;
+		right: 5;
+		transform: translate(0%, 6.8%);
+		border-radius: 0;
 	}
 </style>
