@@ -78,3 +78,14 @@ def update_task(slug):
     dm.delete_task(task["slug"])
     dm.create_task(task, task["slug"])
     return task
+
+
+@app.get("/api/v1/quickadd/")
+def get_quick_tasks():
+    user = flask.request.args.get("user")
+    if not user:
+        flask.abort(400, description="No user provided")
+    quick_tasks = dm.get_quick_tasks(user)
+    if quick_tasks is None:
+        flask.abort(404, description="No quick tasks found")
+    return quick_tasks
