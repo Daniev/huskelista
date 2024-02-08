@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Dropdown from './Dropdown.svelte';
 	import Icon from './Icon.svelte';
-	import ListEntry from './ListEntry.svelte';
+	import QuickAddEntry from './QuickAddEntry.svelte';
 	import TaskBox from './taskBox.svelte';
 
 	import { user } from '$lib/stores';
@@ -26,7 +26,7 @@
 		<div class="quick-add">
 			<TaskBox title="Quick Add">
 				<div slot="taskList">
-					<ListEntry {task} classes={isMia ? 'mia' : 'daniel'} />
+					<QuickAddEntry {task} {isMia} />
 				</div>
 			</TaskBox>
 		</div>

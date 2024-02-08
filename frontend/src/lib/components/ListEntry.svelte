@@ -7,11 +7,11 @@
 	export let classes: 'mia' | 'completed' | 'daniel' = 'completed';
 	export let task: Task;
 
-	async function handleClick() {
+	export let handleClick = async () => {
 		task.complete = !task.complete;
 		task = task;
 		await axios.put(`${TASK_URL}${task.slug}`, task).catch((error) => console.warn(error));
-	}
+	};
 </script>
 
 <button class={classes} on:click={handleClick}>
