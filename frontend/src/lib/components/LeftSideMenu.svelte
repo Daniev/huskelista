@@ -25,7 +25,7 @@
 
 	<div class="content" slot="content">
 		<div class="quick-add">
-			<TaskBox title="Quick Add">
+			<TaskBox title="Hurtigforslag">
 				<div slot="taskList">
 					{#each $quickList as task}
 						<QuickAddEntry {task} {isMia} />
