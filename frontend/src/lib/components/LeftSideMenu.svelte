@@ -7,12 +7,6 @@
 
 	import { user } from '$lib/stores';
 
-	const task = {
-		title: 'test',
-		complete: false,
-		assignee: $user
-	};
-
 	const isMia = $user === 'Mia';
 
 	let isOpen = false;

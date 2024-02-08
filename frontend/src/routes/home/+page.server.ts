@@ -13,8 +13,9 @@ export async function load({ cookies }) {
 	const response = await axios
 		.get(TASK_URL + params)
 		.catch((error) => console.warn('Failed to get tasks: ' + error));
-	const quick_response = await axios.get(QUICK_URL + params)
-	.catch((error) => console.warn('Failed to get quick tasks: ' + error));
+	const quick_response = await axios
+		.get(QUICK_URL + params)
+		.catch((error) => console.warn('Failed to get quick tasks: ' + error));
 	if (response && quick_response) {
 		return {
 			user: cookieUser as User,
@@ -24,7 +25,8 @@ export async function load({ cookies }) {
 	}
 	return {
 		user: cookieUser as User,
-		response: [] as Task[]
+		response: [] as Task[],
+		quick_response: [] as QuickTask[]
 	};
 }
 

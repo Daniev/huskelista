@@ -9,7 +9,7 @@
 }
 
 :root {
-	--bg-color: hsl(0,0%,100%);
+	--bg-color: hsl(0, 0%, 100%);
 	--white-text-color: #fdfffc;
 	--text-color: #040a10;
 	--header-color: #235789;
@@ -76,7 +76,7 @@
 	--bo: 0.8rem;
 	--bo-big: 84px;
 
-	--border-small: 0.10px solid var(--custom-border-color, var(--border-color));
+	--border-small: 0.1px solid var(--custom-border-color, var(--border-color));
 
 	--gradient-blue: linear-gradient(45deg, var(--new-blue), var(--new-blue-light));
 }
