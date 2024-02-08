@@ -22,7 +22,7 @@
 	};
 </script>
 
-<div class=" center">
+<div class="center">
 	<h1 class="centerDown">Velkommen {$user}</h1>
 
 	<section>
@@ -92,6 +92,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			overflow-y: auto;
 		}
 		.none {
 			color: var(--text-color);

@@ -20,6 +20,9 @@
 
 <style lang="scss">
 	header {
+		top: 0;
+		position: sticky;
+		position: -webkit-sticky;
 		width: 100svw;
 		height: 3.8rem;
 		display: flex;

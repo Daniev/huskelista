@@ -83,7 +83,7 @@
 		border-right: var(--border-small);
 		top: 0;
 		right: 5;
-		transform: translate(0%, 6.4%);
+		transform: translate(0%, 3.8rem);
 		border-radius: 0;
 	}
 </style>
