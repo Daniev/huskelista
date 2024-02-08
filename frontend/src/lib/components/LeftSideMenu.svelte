@@ -3,6 +3,7 @@
 	import Icon from './Icon.svelte';
 	import QuickAddEntry from './QuickAddEntry.svelte';
 	import TaskBox from './taskBox.svelte';
+	import { quickList } from '$lib/stores';
 
 	import { user } from '$lib/stores';
 
@@ -26,7 +27,9 @@
 		<div class="quick-add">
 			<TaskBox title="Quick Add">
 				<div slot="taskList">
-					<QuickAddEntry {task} {isMia} />
+					{#each $quickList as task}
+						<QuickAddEntry {task} {isMia} />
+					{/each}
 				</div>
 			</TaskBox>
 		</div>
