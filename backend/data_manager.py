@@ -7,12 +7,16 @@ class FilePaths:
     """Contains file paths for the data files, Exists to allow for testing files"""
 
     TASK_FILE = "./data/tasks.json"
+    QUICK_FILE = "./data/quick_tasks.json"
 
-    def __init__(self, taskFile: str) -> None:
+    def __init__(self, taskFile: str, quick_file: str = None) -> None:
         self.TASK_FILE = taskFile
+        self.QUICK_FILE = (
+            quick_file if quick_file is not None else "./data/quick_tasks.json"
+        )
 
     def values(self):
-        return [self.TASK_FILE]
+        return [self.TASK_FILE, self.QUICK_FILE]
 
 
 class DataManager:
@@ -28,6 +32,19 @@ class DataManager:
         if tasks == []:
             tasks = None
         return tasks
+
+    def get_quick_tasks(self, user: str):
+        quick_tasks = open_json(self.filepaths.QUICK_FILE, "r")
+        if user is not None and quick_tasks is not None:
+            quick_tasks = [
+                task
+                for task in quick_tasks
+                if task["assignee"] and task["assignee"].lower() == user.lower()
+            ]
+        if quick_tasks == []:
+            quick_tasks = None
+        quickies = [q["title"] for q in quick_tasks]
+        return quickies
 
     def get_tasks_by_user(self, user: str) -> list:
         tasks = self.get_tasks()
@@ -152,4 +169,7 @@ class DataManager:
             }
         )
         open_json(self.filepaths.TASK_FILE, "w", tasks)
+
+        quicks = ["Vask bad", "Klesvask", "Vaske ovn og kjøleskap"]
+        open_json(self.filepaths.QUICK_FILE, "w", quicks)
         return

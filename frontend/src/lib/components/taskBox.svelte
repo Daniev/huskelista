@@ -21,10 +21,9 @@
 
 <style lang="scss">
 	.box {
-		max-height: 33rem;
-		background-color: var(--white);
+		background-color: var(--box-color, var(--white));
 		border-radius: var(--bo);
-		border: var(--border-small);
+		border: var(--box-border, var(--border-small));
 	}
 
 	.header {
@@ -36,6 +35,7 @@
 		border-bottom: solid var(--border-color) 1px;
 		h2 {
 			margin: 0;
+			font-size: var(--title-size, var(--fo-medium));
 		}
 	}
 
@@ -48,7 +48,7 @@
 	}
 
 	.list-container {
-		height: 20rem;
+		height: var(--box-height, 20rem);
 		display: flex;
 		flex-direction: column;
 		align-items: center;

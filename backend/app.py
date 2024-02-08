@@ -1,9 +1,11 @@
 import flask
+from flask_cors import CORS
 import json
 from data_manager import DataManager, FilePaths
 from logger import setup_logger
 
 app = flask.Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
 fp = FilePaths("./data/tasks.json")
 dm = DataManager(fp)
 
@@ -76,3 +78,14 @@ def update_task(slug):
     dm.delete_task(task["slug"])
     dm.create_task(task, task["slug"])
     return task
+
+
+@app.get("/api/v1/quickadd/")
+def get_quick_tasks():
+    user = flask.request.args.get("user")
+    if not user:
+        flask.abort(400, description="No user provided")
+    quick_tasks = dm.get_quick_tasks(user)
+    if quick_tasks is None:
+        flask.abort(404, description="No quick tasks found")
+    return quick_tasks

@@ -10,12 +10,12 @@
 		line-height: var(--header-line-height);
 	}
 	:global(h1) {
-		font-size: var(--fo-xlarge);
+		font-size: var(--fo-large);
 		font-weight: normal;
 	}
 
 	:global(h2) {
-		font-size: var(--fo-large);
+		font-size: var(--fo-medium);
 		font-weight: normal;
 	}
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
+	import LeftSideMenu from '$lib/components/LeftSideMenu.svelte';
 	import { user } from '$lib/stores';
 	const logout = () => {
 		$user = 'unknown';
@@ -8,7 +9,7 @@
 </script>
 
 <header>
-	<div />
+	<LeftSideMenu />
 	<img src="Logo.png" alt="logo" />
 	<a href="/">
 		<Button on:click={logout}>Logg ut</Button>
@@ -19,12 +20,17 @@
 
 <style lang="scss">
 	header {
+		top: 0;
+		position: sticky;
+		position: -webkit-sticky;
 		width: 100svw;
 		height: 3.8rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		background-color: var(--matt-green);
+		margin: 0;
+		padding: 0;
 	}
 
 	a {
@@ -32,8 +38,5 @@
 	}
 	img {
 		height: 3.5rem;
-	}
-	div {
-		width: 4.25rem; // centers the icon..
 	}
 </style>

@@ -5,7 +5,7 @@
 	import Button from '$lib/components/Button.svelte';
 
 	import { fly } from 'svelte/transition';
-	import { list, user } from '$lib/stores';
+	import { list, user, quickList } from '$lib/stores';
 	import Icon from '$lib/components/Icon.svelte';
 	import Trash from '$lib/components/Trash.svelte';
 
@@ -15,6 +15,7 @@
 	let iconName = 'zondicons:cheveron-up';
 	$: $user = data.user;
 	$: $list = data.response;
+	$: $quickList = data.quick_response;
 	$: iconName = showComplete ? 'zondicons:cheveron-up' : 'zondicons:cheveron-down';
 
 	const toggleShow = () => {
@@ -22,7 +23,7 @@
 	};
 </script>
 
-<div class=" center">
+<div class="center">
 	<h1 class="centerDown">Velkommen {$user}</h1>
 
 	<section>
@@ -92,6 +93,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			overflow-y: auto;
 		}
 		.none {
 			color: var(--text-color);

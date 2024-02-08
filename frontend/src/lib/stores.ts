@@ -1,4 +1,4 @@
-import type { Task } from '$lib/types/tasks';
+import type { QuickTask, Task } from '$lib/types/tasks';
 import type { User } from '$lib/types/user';
 import { writable } from 'svelte/store';
 
@@ -36,3 +36,4 @@ const defaultList = [
 export const user = writable<User>('unknown');
 export const users = writable<User[]>(['Mia', 'Daniel']);
 export const list = writable<Task[]>(defaultList);
+export const quickList = writable<QuickTask[]>([]);

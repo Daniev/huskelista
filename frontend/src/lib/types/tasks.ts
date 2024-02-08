@@ -6,3 +6,6 @@ export interface Task {
 	assignee: User;
 	complete: boolean;
 }
+
+/** The quick task as it comes from the backend (Title only) */
+export type QuickTask = string;

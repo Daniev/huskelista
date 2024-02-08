@@ -16,14 +16,16 @@
 <style lang="scss">
 	.button {
 		--_button-color: var(--button-background, var(--light-grey));
+		--_button-text: var(--button-text, var(--text-color));
 		--_hover-color: var(--hover-color, var(--green));
 		--_hover-text: var(--hover-text, var(--white-text-color));
+		--_border-radius: var(--button-border-radius, var(--bo-big));
 		background-color: var(--_button-color);
-		border-radius: var(--bo-big);
+		border-radius: var(--_border-radius);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: var(--text-color);
+		color: var(--_button-text);
 		font-size: var(--fo-small);
 		padding: var(--pa-small) var(--pa);
 		margin: var(--ma) 0;
@@ -40,6 +42,6 @@
 	}
 	.mia {
 		--_hover-color: var(--hover-color, var(--mia-profile-color));
-		--_hover-text: var(--hover-text, var(--text-color));
+		--_hover-text: var(--hover-text, var(--white-text-color));
 	}
 </style>

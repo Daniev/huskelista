@@ -9,11 +9,11 @@
 }
 
 :root {
-	--bg-color: hsl(0, 0%, 89%);
+	--bg-color: hsl(0, 0%, 100%);
 	--white-text-color: #fdfffc;
 	--text-color: #040a10;
 	--header-color: #235789;
-	--border-color: #a0acad;
+	--border-color: #e0e3e4;
 
 	--button-color: hsl(140, 13%, 59%);
 	--button-hover-color: hsl(148, 30%, 46%);
@@ -21,10 +21,10 @@
 	--subtle-button-hover-color: hsl(0, 0%, 68%);
 	--dropdown-bg: hsl(0, 0%, 89%);
 
-	--mia-task-color: hsla(49, 94%, 68%, 0.4);
-	--mia-highlight-color: hsla(49, 94%, 68%, 0.9);
-	--mia-profile-color: hsl(49, 94%, 68%);
-	--mia-profile-color-darker: hsl(49, 94%, 60%);
+	--mia-task-color: hsla(290, 94%, 68%, 0.4);
+	--mia-highlight-color: hsla(283, 94%, 68%, 0.9);
+	--mia-profile-color: hsl(283, 94%, 68%);
+	--mia-profile-color-darker: hsl(283, 94%, 60%);
 	--daniel-task-color: hsla(203, 33%, 53%, 0.5);
 	--daniel-highlight-color: hsl(203, 33%, 53%);
 	--daniel-profile-color: var(--green);
@@ -76,7 +76,7 @@
 	--bo: 0.8rem;
 	--bo-big: 84px;
 
-	--border-small: 0.25px solid var(--border-color);
+	--border-small: 0.1px solid var(--custom-border-color, var(--border-color));
 
 	--gradient-blue: linear-gradient(45deg, var(--new-blue), var(--new-blue-light));
 }

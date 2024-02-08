@@ -7,11 +7,11 @@
 	export let classes: 'mia' | 'completed' | 'daniel' = 'completed';
 	export let task: Task;
 
-	async function handleClick() {
+	export let handleClick = async () => {
 		task.complete = !task.complete;
 		task = task;
 		await axios.put(`${TASK_URL}${task.slug}`, task).catch((error) => console.warn(error));
-	}
+	};
 </script>
 
 <button class={classes} on:click={handleClick}>
@@ -33,7 +33,7 @@
 	p {
 		text-decoration: none;
 		margin: 0;
-		width: 18.5rem;
+		width: var(--list-width, 18.5rem);
 		height: 1rem;
 		padding: var(--pa-small);
 	}
@@ -68,6 +68,8 @@
 		&:hover {
 			background-image: none;
 			background-color: var(--mia-highlight-color);
+			color: var(--white-text-color);
+			--icon-fill-color: var(--white-text-color);
 			font-weight: 600;
 		}
 	}
